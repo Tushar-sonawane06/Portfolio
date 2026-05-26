@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tushar Sonawane | Aspiring Software Engineer</title>
+  <meta name="description"
+    content="Portfolio of Tushar Sonawane – Aspiring Software Engineer specializing in Full Stack Development, Open Source, and building impactful products." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- Particles Background -->
+  <canvas id="particles" class="particles-canvas"></canvas>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">Tushar<span>.</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#certificates" class="nav-link">Certificates</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="home">
+    <div class="hero-container">
+      <div class="hero-left reveal">
+        <p class="hero-greeting"><span class="greeting-dot"></span>HEY THERE!</p>
+        <h1 class="hero-title">I'm <span class="golden">Tushar Sonawane</span></h1>
+        <h2 class="hero-subtitle">Aspiring Software Engineer</h2>
+        <div class="hero-typing">
+          <span class="typing-prefix">&gt; </span>
+          <span class="typed-text" id="typedText"></span>
+          <span class="cursor-blink">|</span>
+        </div>
+        <div class="hero-buttons">
+          <a href="assests/Tushar-Sonawane-Resume.pdf" class="btn btn-primary" id="resumeBtn">
+            <i class="fas fa-file-alt"></i> Resume
+          </a>
+          <a href="#projects" class="btn btn-outline">
+            <i class="fas fa-briefcase"></i> My Work
+          </a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://github.com/Tushar-sonawane06" class="social-icon" aria-label="GitHub"><i
+              class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/tushar-sonawane-800422336/" class="social-icon" aria-label="LinkedIn"><i
+              class="fab fa-linkedin-in"></i></a>
+          <a href="mailto:tusharsonawane1903@gmail.com" class="social-icon" aria-label="Email"><i
+              class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="hero-right reveal">
+        <div class="hero-img-wrap">
+          <div class="hero-img-glow"></div>
+          <img src="assests/profile.jpeg" alt="Tushar Sonawane" class="hero-img" />
+          <div class="hero-ring hero-ring-1"></div>
+          <div class="hero-ring hero-ring-2"></div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT SECTION ===== -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag">Get To Know Me</p>
+        <h2 class="section-title">About <span class="golden">Me</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>I'm <strong class="golden">Tushar Sonawane</strong>, an aspiring Software Engineer with a deep passion for
+            crafting elegant, high-performance web applications. My journey in tech is driven by curiosity and a
+            relentless desire to build products that make a real-world impact.</p>
+          <p>I specialize in <strong class="golden">Full Stack Web Development</strong> — from designing sleek,
+            responsive frontends to architecting robust backend systems. I actively contribute to <strong
+              class="golden">Open Source</strong> communities, believing that collaborative development is the backbone
+            of modern innovation.</p>
+          <p>Whether it's mastering a new framework, solving complex algorithmic challenges, or collaborating with a
+            talented team to ship a feature — I thrive on continuous learning and growth. My goal is to leverage
+            technology to create meaningful experiences that bridge the gap between ideas and reality.</p>
+          <p>Outside of coding, I enjoy exploring emerging technologies, contributing to developer communities, and
+            mentoring fellow developers on their journey.</p>
+        </div>
+        <div class="about-stats reveal">
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-code"></i></div>
+            <div class="stat-number" data-target="3">0</div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-code-branch"></i></div>
+            <div class="stat-number" data-target="5">0</div>
+            <div class="stat-label">Open Source Programs</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-layer-group"></i></div>
+            <div class="stat-number" data-target="17">0</div>
+            <div class="stat-label">Technologies Learned</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon"><i class="fab fa-github"></i></div>
+            <div class="stat-number" data-target="3000">0</div>
+            <div class="stat-label">GitHub Contributions</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tech Stack -->
+      <div class="section-header reveal" style="margin-top:5rem;">
+        <p class="section-tag">What I Work With</p>
+        <h2 class="section-title">Tech <span class="golden">Stack</span></h2>
+      </div>
+      <div class="tech-grid reveal">
+        <div class="tech-card"><i class="fab fa-html5"></i><span>HTML</span></div>
+        <div class="tech-card"><i class="fab fa-css3-alt"></i><span>CSS</span></div>
+        <div class="tech-card"><i class="fab fa-js"></i><span>JavaScript</span></div>
+        <div class="tech-card"><i class="fab fa-react"></i><span>React</span></div>
+        <div class="tech-card"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+        <div class="tech-card"><img src="https://www.vectorlogo.zone/logos/expressjs/expressjs-icon.svg" alt="Express"
+            class="tech-svg" /><span>Express.js</span></div>
+        <div class="tech-card"><img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" alt="MongoDB"
+            class="tech-svg" /><span>MongoDB</span></div>
+        <div class="tech-card"><i class="fab fa-git-alt"></i><span>Git</span></div>
+        <div class="tech-card"><i class="fab fa-github"></i><span>GitHub</span></div>
+        <div class="tech-card"><i class="fab fa-docker"></i><span>Docker</span></div>
+        <div class="tech-card"><img src="https://www.vectorlogo.zone/logos/socketio/socketio-icon.svg" alt="Socket.IO"
+            class="tech-svg" /><span>Socket.IO</span></div>
+        <div class="tech-card"><i class="fab fa-java"></i><span>Java</span></div>
+        <div class="tech-card"><img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg"
+            alt="Tailwind CSS" class="tech-svg tech-svg-color" /><span>Tailwind CSS</span></div>
+        <div class="tech-card"><i class="fas fa-plug"></i><span>RESTful APIs</span></div>
+        <div class="tech-card"><i class="fas fa-database"></i><span>SQL</span></div>
+        <div class="tech-card"><i class="fab fa-bootstrap"></i><span>Bootstrap</span></div>
+        <div class="tech-card"><i class="fab fa-python"></i><span>Python</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE SECTION ===== -->
+  <section class="experience section" id="experience">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag">My Journey</p>
+        <h2 class="section-title">Open Source <span class="golden">Experience</span></h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item left reveal">
+          <div class="timeline-card">
+            <div class="timeline-icon"><i class="fas fa-code-branch"></i></div>
+            <h3 class="tl-title">Girlscript Summer of Code</h3>
+            <p class="tl-date"><i class="far fa-calendar-alt"></i> July 2025 – October 2025</p>
+            <p class="tl-desc">Contributed to multiple open-source projects under GSSoC, collaborating with global
+              developers. Worked on bug fixes, feature implementations, and documentation improvements — sharpening both
+              technical and team collaboration skills.</p>
+            <div class="tl-tag">Contributor</div>
+          </div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-spacer"></div>
+        </div>
+        <div class="timeline-item right reveal">
+          <div class="timeline-spacer"></div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-icon"><i class="fas fa-leaf"></i></div>
+            <h3 class="tl-title">Hacktoberfest</h3>
+            <p class="tl-date"><i class="far fa-calendar-alt"></i> October 2025</p>
+            <p class="tl-desc">Participated in Hacktoberfest by submitting quality pull requests to open-source
+              repositories. Focused on real-world development challenges, enhancing codebases and fostering a spirit of
+              collaborative engineering in the global dev community.</p>
+            <div class="tl-tag">Contributor</div>
+          </div>
+        </div>
+        <div class="timeline-item left reveal">
+          <div class="timeline-card">
+            <div class="timeline-icon"><i class="fas fa-snowflake"></i></div>
+            <h3 class="tl-title">Winter of Code Social</h3>
+            <p class="tl-date"><i class="far fa-calendar-alt"></i> Dec 2025 – Feb 2026</p>
+            <p class="tl-desc">Engaged in Winter of Code Social, contributing to community-driven projects with a focus
+              on building impactful features. Gained hands-on experience in code reviews, mentorship, and agile
+              collaboration within a distributed team environment.</p>
+            <div class="tl-tag">Contributor</div>
+          </div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-spacer"></div>
+        </div>
+        <div class="timeline-item right reveal">
+          <div class="timeline-spacer"></div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-icon"><i class="fas fa-fire"></i></div>
+            <h3 class="tl-title">Elite Coders Winter of Code</h3>
+            <p class="tl-date"><i class="far fa-calendar-alt"></i> Jan 2026 – March 2026</p>
+            <p class="tl-desc">Selected as a contributor in Elite Coders WoC, working on advanced open-source solutions.
+              Collaborated with elite developers, tackled challenging engineering problems, and delivered
+              production-ready contributions that improved project quality and performance.</p>
+            <div class="tl-tag">Contributor</div>
+          </div>
+        </div>
+        <div class="timeline-item left reveal">
+          <div class="timeline-card">
+            <div class="timeline-icon"><i class="fas fa-rocket"></i></div>
+            <h3 class="tl-title">Nexus Spring of Code</h3>
+            <p class="tl-date"><i class="far fa-calendar-alt"></i> April 2026 – Present</p>
+            <p class="tl-desc">Currently participating in Nexus Spring of Code, driving feature development and
+              mentoring new contributors. Leading sub-modules, engaging in pair programming sessions, and fostering a
+              collaborative ecosystem that celebrates teamwork and innovative problem-solving.</p>
+            <div class="tl-tag">Project Admin</div>
+          </div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-spacer"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag">What I've Built</p>
+        <h2 class="section-title">Featured <span class="golden">Projects</span></h2>
+      </div>
+      <div class="projects-grid">
+        <!-- WanderLust -->
+        <div class="project-card reveal">
+          <div class="project-img-wrap">
+            <img src="assests/wanderlust.PNG" alt="WanderLust" />
+            <div class="project-overlay">
+              <a href="https://wanderlust.tushar-sonawane.xyz/" class="btn btn-sm">Live Demo <i
+                  class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">WanderLust</h3>
+            <p class="project-desc">A full-stack hotel booking platform with authentication, image uploads, maps
+              integration, and responsive UI built for seamless travel planning.</p>
+            <div class="project-tags">
+              <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MongoDB</span><span
+                class="tag">EJS</span><span class="tag">Cloudinary</span>
+            </div>
+            <div class="project-links">
+              <a href="https://wanderlust.tushar-sonawane.xyz/" class="btn btn-sm">Live Demo <i
+                  class="fas fa-external-link-alt"></i></a>
+              <a href="https://github.com/Tushar-sonawane06/WanderLust" class="btn btn-outline-sm"><i
+                  class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </div>
+        <!-- Jeni -->
+        <div class="project-card reveal">
+          <div class="project-img-wrap">
+            <img src="assests/jeni.PNG" alt="Jeni AI Chatbot" />
+            <div class="project-overlay">
+              <a href="https://jeniai.tushar-sonawane.xyz/" class="btn btn-sm">Live Demo <i
+                  class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Jeni — AI Chatbot</h3>
+            <p class="project-desc">An intelligent AI chatbot powered by the Groq API with a sleek, modern
+              conversational interface for natural, real-time interactions.</p>
+            <div class="project-tags">
+              <span class="tag">React</span><span class="tag">Groq API</span><span class="tag">Node.js</span><span
+                class="tag">CSS</span>
+            </div>
+            <div class="project-links">
+              <a href="https://jeniai.tushar-sonawane.xyz/" class="btn btn-sm">Live Demo<i
+                  class="fas fa-external-link-alt"></i></a>
+              <a href="https://github.com/Tushar-sonawane06/ChatBot" class="btn btn-outline-sm"><i
+                  class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </div>
+        <!-- DevSync -->
+        <div class="project-card reveal">
+          <div class="project-img-wrap">
+            <img src="assests/devsync.PNG" alt="DevSync" />
+            <div class="project-overlay">
+              <a href="https://devsync.tushar-sonawane.xyz/" class="btn btn-sm">Live Demo <i
+                  class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">DevSync — Code Editor</h3>
+            <p class="project-desc">A real-time collaborative code editor supporting multiple users simultaneously,
+              powered by Socket.IO, Monaco Editor, and Yjs for conflict-free syncing.</p>
+            <div class="project-tags">
+              <span class="tag">Socket.IO</span><span class="tag">Monaco</span><span class="tag">Yjs</span><span
+                class="tag">React</span><span class="tag">Node.js</span>
+            </div>
+            <div class="project-links">
+              <a href="https://devsync.tushar-sonawane.xyz/" class="btn btn-sm">Live Demo <i
+                  class="fas fa-external-link-alt"></i></a>
+              <a href="https://github.com/Tushar-sonawane06/DevSync" class="btn btn-outline-sm"><i
+                  class="fab fa-github"></i> GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CERTIFICATES SECTION ===== -->
+  <section class="certificates section" id="certificates">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag">My Achievements</p>
+        <h2 class="section-title">Certificates &amp; <span class="golden">Recognition</span></h2>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-card reveal">
+          <div class="cert-img-wrap">
+            <img src="assests/postman-certificate2.jpg" alt="Postman Certificate" />
+          </div>
+          <div class="cert-body">
+            <h3>Postman Certificate</h3>
+            <p>Validated expertise in API design, testing, and documentation using the Postman platform — a core skill
+              for modern backend development.</p>
+            <a href="#" class="btn btn-sm">View Certificate <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-img-wrap">
+            <img src="assests/gssoc-certificate.jfif" alt="GSSoC" />
+          </div>
+          <div class="cert-body">
+            <h3>Girlscript Summer of Code</h3>
+            <p>Recognized for impactful open-source contributions during GSSoC 2025 — one of India's largest open-source
+              programs.</p>
+            <a href="#" class="btn btn-sm">View Certificate <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-img-wrap">
+            <img src="assests/wocs-certificate.jfif" alt="Winter of Code Social" />
+          </div>
+          <div class="cert-body">
+            <h3>Winter of Code Social</h3>
+            <p>Certificate of participation and contribution in Winter of Code Social — showcasing dedication to
+              collaborative open-source development.</p>
+            <a href="#" class="btn btn-sm">View Certificate <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+        <div class="cert-card reveal">
+          <div class="cert-img-wrap">
+            <img src="assests/ecwoc-certificate.jfif" alt="Elite Coders WoC" />
+          </div>
+          <div class="cert-body">
+            <h3>Elite Coders Winter of Code</h3>
+            <p>Awarded for outstanding contributions in Elite Coders WoC — demonstrating advanced technical skills and
+              collaborative excellence.</p>
+            <a href="#" class="btn btn-sm">View Certificate <i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-tag">Get In Touch</p>
+        <h2 class="section-title">Contact <span class="golden">Me</span></h2>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <p class="contact-intro">Have a project in mind, want to collaborate, or just say hi? My inbox is always open.
+            I'll get back to you as soon as possible!</p>
+          <div class="contact-links">
+            <a href="mailto:tusharsonawane1903@gmail.com" class="contact-link">
+              <div class="cl-icon"><i class="fas fa-envelope"></i></div>
+              <div><span>Email</span>
+                <p>tusharsonawane1903@gmail.com</p>
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/in/tushar-sonawane-800422336/" class="contact-link">
+              <div class="cl-icon"><i class="fab fa-linkedin-in"></i></div>
+              <div><span>LinkedIn</span>
+                <p>Tushar Sonawane</p>
+              </div>
+            </a>
+            <a href="https://github.com/Tushar-sonawane06" class="contact-link">
+              <div class="cl-icon"><i class="fab fa-github"></i></div>
+              <div><span>GitHub</span>
+                <p>Tushar-sonawane06</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="contact-form-wrap reveal">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="John Doe" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..."
+                required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-full" id="sendBtn">
+              <span>Send Message</span> <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy">Designed &amp; Developed by <span class="golden">Tushar Sonawane</span></p>
+        <div class="footer-socials">
+          <a href="https://github.com/Tushar-sonawane06/" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/tushar-sonawane-800422336/" aria-label="LinkedIn"><i
+              class="fab fa-linkedin-in"></i></a>
+          <a href="mailto:tusharsonawane1903@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
