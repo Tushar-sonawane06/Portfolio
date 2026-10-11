@@ -1107,6 +1107,53 @@ img {
   color: #444;
 }
 
+.form-status {
+  margin-top: 1.25rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  line-height: 1.5;
+  animation: fadeInStatus 0.3s ease;
+}
+
+.form-status.success {
+  background: rgba(46, 125, 50, 0.15);
+  border: 1px solid rgba(76, 175, 80, 0.45);
+  color: #81c784;
+}
+
+.form-status.error {
+  background: rgba(211, 47, 47, 0.15);
+  border: 1px solid rgba(244, 67, 54, 0.45);
+  color: #e57373;
+}
+
+.form-status.info {
+  background: rgba(245, 197, 24, 0.12);
+  border: 1px solid rgba(245, 197, 24, 0.4);
+  color: #f5c518;
+}
+
+.form-status a {
+  text-decoration: underline;
+  color: inherit;
+  font-weight: 600;
+}
+
+@keyframes fadeInStatus {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ===== FOOTER ===== */
 .footer {
   padding: 2rem 0;

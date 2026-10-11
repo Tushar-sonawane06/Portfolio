@@ -468,7 +468,14 @@
           </div>
         </div>
         <div class="contact-form-wrap reveal">
-          <form class="contact-form" id="contactForm">
+          <form class="contact-form" id="contactForm" action="https://formsubmit.co/tusharsonawane1903@gmail.com" method="POST">
+            <!-- FormSubmit Configuration -->
+            <input type="hidden" name="_subject" id="emailSubject" value="New Portfolio Contact Message" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <!-- Honeypot Anti-Spam Field -->
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
             <div class="form-group">
               <label for="name">Your Name</label>
               <input type="text" id="name" name="name" placeholder="John Doe" required />
@@ -485,6 +492,7 @@
             <button type="submit" class="btn btn-primary w-full" id="sendBtn">
               <span>Send Message</span> <i class="fas fa-paper-plane"></i>
             </button>
+            <div id="formStatus" class="form-status" style="display: none;" role="alert"></div>
           </form>
         </div>
       </div>

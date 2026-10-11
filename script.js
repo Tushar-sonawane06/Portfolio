@@ -123,21 +123,124 @@ rippleStyle.textContent = '@keyframes rippleAnim { to { transform: scale(3); opa
 document.head.appendChild(rippleStyle);
 
 // ===== CONTACT FORM =====
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const btn = document.getElementById('sendBtn');
-  btn.innerHTML = '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.innerHTML = '<span>Message Sent!</span> <i class="fas fa-check"></i>';
-    btn.style.background = 'linear-gradient(135deg,#4caf50,#2e7d32)';
-    this.reset();
-    setTimeout(() => {
-      btn.innerHTML = '<span>Send Message</span> <i class="fas fa-paper-plane"></i>';
-      btn.style.background = ''; btn.disabled = false;
-    }, 3000);
-  }, 1500);
-});
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const btn = document.getElementById('sendBtn');
+    const statusDiv = document.getElementById('formStatus');
+    const originalBtnHtml = '<span>Send Message</span> <i class="fas fa-paper-plane"></i>';
+
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+
+    const nameVal = nameInput ? nameInput.value.trim() : '';
+    const emailVal = emailInput ? emailInput.value.trim() : '';
+    const messageVal = messageInput ? messageInput.value.trim() : '';
+
+    // Check honeypot spam protection
+    const honey = contactForm.querySelector('input[name="_honey"]');
+    if (honey && honey.value) {
+      return; // Silently ignore bot submission
+    }
+
+    // Set sending state
+    btn.innerHTML = '<span>Sending...</span> <i class="fas fa-spinner fa-spin"></i>';
+    btn.disabled = true;
+
+    if (statusDiv) {
+      statusDiv.style.display = 'none';
+      statusDiv.className = 'form-status';
+      statusDiv.innerHTML = '';
+    }
+
+    const recipientEmail = 'tusharsonawane1903@gmail.com';
+    const endpoint = `https://formsubmit.co/ajax/${recipientEmail}`;
+
+    // If opened via local file protocol, fallback to standard form submit
+    if (window.location.protocol === 'file:') {
+      contactForm.submit();
+      return;
+    }
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: nameVal,
+          email: emailVal,
+          message: messageVal,
+          _subject: `New Portfolio Message from ${nameVal || 'Visitor'}`,
+          _template: 'table',
+          _captcha: 'false'
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok && (data.success === 'true' || data.success === true)) {
+        // Success: email dispatched to tusharsonawane1903@gmail.com
+        btn.innerHTML = '<span>Message Sent!</span> <i class="fas fa-check"></i>';
+        btn.style.background = 'linear-gradient(135deg, #4caf50, #2e7d32)';
+        contactForm.reset();
+
+        if (statusDiv) {
+          statusDiv.className = 'form-status success';
+          statusDiv.innerHTML = '<i class="fas fa-check-circle"></i> <span>Thank you! Your message has been sent successfully. I will get back to you soon.</span>';
+          statusDiv.style.display = 'flex';
+        }
+
+        setTimeout(() => {
+          btn.innerHTML = originalBtnHtml;
+          btn.style.background = '';
+          btn.disabled = false;
+        }, 4000);
+      } else if (data.message && data.message.toLowerCase().includes('activation')) {
+        // First-time FormSubmit activation notice
+        btn.innerHTML = '<span>Check Inbox</span> <i class="fas fa-info-circle"></i>';
+        btn.style.background = 'linear-gradient(135deg, #f5c518, #c9a214)';
+        btn.style.color = '#000';
+
+        if (statusDiv) {
+          statusDiv.className = 'form-status info';
+          statusDiv.innerHTML = `<i class="fas fa-envelope-open-text"></i> <span><strong>One-Time Activation:</strong> FormSubmit sent an activation email to <em>${recipientEmail}</em>. Please click "Activate Form" in your inbox once to enable incoming messages!</span>`;
+          statusDiv.style.display = 'flex';
+        }
+
+        setTimeout(() => {
+          btn.innerHTML = originalBtnHtml;
+          btn.style.background = '';
+          btn.style.color = '';
+          btn.disabled = false;
+        }, 6000);
+      } else {
+        throw new Error(data.message || 'Submission failed');
+      }
+    } catch (err) {
+      console.error('Contact Form Error:', err);
+      btn.innerHTML = '<span>Failed to Send</span> <i class="fas fa-exclamation-triangle"></i>';
+      btn.style.background = 'linear-gradient(135deg, #e53935, #c62828)';
+
+      if (statusDiv) {
+        statusDiv.className = 'form-status error';
+        statusDiv.innerHTML = `<i class="fas fa-exclamation-circle"></i> <span>Could not send automatically. <a href="mailto:${recipientEmail}?subject=Portfolio%20Inquiry%20from%20${encodeURIComponent(nameVal)}&body=${encodeURIComponent(messageVal)}">Click here to email me directly</a></span>`;
+        statusDiv.style.display = 'flex';
+      }
+
+      setTimeout(() => {
+        btn.innerHTML = originalBtnHtml;
+        btn.style.background = '';
+        btn.disabled = false;
+      }, 5000);
+    }
+  });
+}
 
 // ===== SMOOTH SCROLL FOR ANCHORS =====
 document.querySelectorAll('a[href^="#"]').forEach(a => {
