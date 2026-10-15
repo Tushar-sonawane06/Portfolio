@@ -1,521 +1,2101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tushar Sonawane | Aspiring Software Engineer</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="description"
     content="Portfolio of Tushar Sonawane – Aspiring Software Engineer specializing in Full Stack Development, Open Source, and building impactful products." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="keywords"
+    content="Tushar Sonawane, Software Engineer, Full Stack Developer, Open Source, MERN Stack, Portfolio, Web Development" />
+  <meta name="robots" content="INDEX,FOLLOW" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Title -->
+  <title>Tushar Sonawane | Aspiring Software Engineer</title>
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/logo/favicon.png" type="image/png" />
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <!-- Swiper Bundle -->
+  <link rel="stylesheet" href="assets/css/swiper-bundle.css" />
+  <!-- Magnific Popup -->
+  <link rel="stylesheet" href="assets/css/magnific-popup.css" />
+  <!-- aos -->
+  <link rel="stylesheet" href="assets/css/aos.css" />
+  <!-- Main css -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    /* ===== EXPERIENCE TIMELINE WITH SCROLL DOT ===== */
+    .custom-timeline-container {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 0 60px;
+    }
+
+    /* Center vertical line */
+    .custom-timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 10px;
+      bottom: 20px;
+      width: 2px;
+      background: rgba(245, 197, 24, 0.25);
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    /* Golden line that fills on scroll */
+    .custom-timeline-progress {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 2px;
+      height: 0%;
+      background: #f5c518;
+      box-shadow: 0 0 14px rgba(245, 197, 24, 0.8);
+      transition: height 0.05s ease-out;
+    }
+
+    /* Glowing golden dot that moves with scroll */
+    .custom-timeline-scroll-dot {
+      position: absolute;
+      left: 50%;
+      top: 0%;
+      width: 20px;
+      height: 20px;
+      background: #f5c518;
+      border: 3.5px solid #000;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 20px #f5c518, 0 0 35px rgba(245, 197, 24, 0.9);
+      pointer-events: none;
+      z-index: 6;
+      transition: top 0.05s ease-out;
+    }
+
+    /* Stack of timeline items */
+    .custom-timeline-items {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+      position: relative;
+      z-index: 3;
+    }
+
+    .custom-timeline-item {
+      position: relative;
+      width: 100%;
+    }
+
+    .custom-timeline-item.left {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      align-items: center;
+    }
+
+    .custom-timeline-item.right {
+      display: grid;
+      grid-template-columns: 1fr 60px 1fr;
+      align-items: center;
+    }
+
+    .custom-timeline-spacer {
+      visibility: hidden;
+    }
+
+    /* Milestone dot anchored on the center line */
+    .custom-timeline-dot {
+      width: 16px;
+      height: 16px;
+      background: #0d0d0d;
+      border: 2px solid rgba(245, 197, 24, 0.45);
+      border-radius: 50%;
+      justify-self: center;
+      align-self: center;
+      transition: all 0.3s ease;
+      z-index: 4;
+    }
+
+    .custom-timeline-dot.active {
+      background: #f5c518;
+      border-color: #fff;
+      box-shadow: 0 0 15px #f5c518, 0 0 30px rgba(245, 197, 24, 0.6);
+      transform: scale(1.3);
+    }
+
+    /* Timeline Cards matching the reference design */
+    .custom-timeline-card {
+      background: rgba(18, 18, 18, 0.85) !important;
+      border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      border-radius: 20px !important;
+      padding: 2.2rem 2.4rem !important;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .custom-timeline-item.left .custom-timeline-card {
+      margin-right: 1.5rem;
+    }
+
+    .custom-timeline-item.right .custom-timeline-card {
+      margin-left: 1.5rem;
+    }
+
+    .custom-timeline-card:hover {
+      border-color: rgba(245, 197, 24, 0.65) !important;
+      box-shadow: 0 15px 40px rgba(245, 197, 24, 0.15), 0 0 25px rgba(245, 197, 24, 0.1) !important;
+      transform: translateY(-6px);
+    }
+
+    .custom-timeline-icon {
+      color: #f5c518 !important;
+      margin-bottom: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .custom-tl-title {
+      color: #ffffff !important;
+      font-size: 1.35rem !important;
+      font-weight: 700 !important;
+      margin-bottom: 0.45rem !important;
+      line-height: 1.3;
+    }
+
+    .custom-tl-date {
+      color: #f5c518 !important;
+      font-size: 0.88rem !important;
+      font-weight: 500 !important;
+      margin-bottom: 1.1rem !important;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .custom-tl-desc {
+      color: rgba(255, 255, 255, 0.72) !important;
+      font-size: 0.96rem !important;
+      line-height: 1.7 !important;
+      margin-bottom: 1.35rem !important;
+    }
+
+    .custom-tl-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 1.1rem;
+      border-radius: 999px;
+      background: rgba(245, 197, 24, 0.08) !important;
+      border: 1px solid rgba(245, 197, 24, 0.35) !important;
+      color: #f5c518 !important;
+      font-size: 0.78rem !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* Responsive for mobile and tablets */
+    @media screen and (max-width: 991px) {
+      .custom-timeline-container {
+        padding: 20px 10px 40px;
+      }
+
+      .custom-timeline-line {
+        left: 20px !important;
+        transform: none !important;
+      }
+
+      .custom-timeline-scroll-dot {
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+      }
+
+      .custom-timeline-item.left,
+      .custom-timeline-item.right {
+        display: flex;
+        flex-direction: column;
+        padding-left: 55px;
+      }
+
+      .custom-timeline-spacer {
+        display: none;
+      }
+
+      .custom-timeline-dot {
+        position: absolute;
+        left: 20px !important;
+        top: 35px;
+        transform: translate(-50%, -50%);
+      }
+
+      .custom-timeline-dot.active {
+        transform: translate(-50%, -50%) scale(1.3);
+      }
+
+      .custom-timeline-item.left .custom-timeline-card,
+      .custom-timeline-item.right .custom-timeline-card {
+        margin: 0;
+        width: 100%;
+      }
+    }
+
+    /* Mobile-only Scroll Hint for Certificates */
+    .certificate-scroll-hint-wrapper {
+      display: none;
+    }
+
+    @media screen and (max-width: 991px) {
+      .certificate-scroll-hint-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 1.25rem;
+        padding-right: 0.75rem;
+      }
+
+      .certificate-scroll-hint {
+        color: #f5c518;
+        font-size: 0.92rem;
+        font-weight: 600;
+        letter-spacing: 0.6px;
+        background: rgba(245, 197, 24, 0.1);
+        border: 1px solid rgba(245, 197, 24, 0.35);
+        border-radius: 999px;
+        padding: 5px 16px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        animation: hintSlide 1.8s ease-in-out infinite;
+      }
+
+      @keyframes hintSlide {
+
+        0%,
+        100% {
+          transform: translateX(0);
+          opacity: 0.85;
+        }
+
+        50% {
+          transform: translateX(5px);
+          opacity: 1;
+        }
+      }
+    }
+
+    /* Banner Hero Person Cutout sizing like reference */
+    .banner-three-man {
+      width: 780px !important;
+      max-width: none !important;
+      inset-block-end: 20% !important;
+      z-index: 2 !important;
+      pointer-events: none !important;
+    }
+
+    .banner-three-man img {
+      width: 100% !important;
+      max-width: none !important;
+      height: auto !important;
+      display: block !important;
+      border-radius: 0 !important;
+    }
+
+    .banner-three-wrap {
+      position: relative !important;
+      z-index: 3 !important;
+    }
+
+    @media screen and (max-width: 1400px) {
+      .banner-three-man {
+        width: 700px !important;
+        inset-block-end: 22% !important;
+      }
+    }
+
+    @media screen and (max-width: 1199px) {
+      .banner-three-man {
+        width: 620px !important;
+        inset-block-end: 25% !important;
+      }
+    }
+
+    /* Responsive Hero Banner for Mobile & Tablet: Image above, Text & Button below */
+    @media screen and (max-width: 991px) {
+      .banner-three-wrapper {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        position: relative !important;
+      }
+
+      .banner-three-title {
+        order: 1 !important;
+        margin-bottom: 0 !important;
+        text-align: center !important;
+        width: 100% !important;
+      }
+
+      .banner-three-man {
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+        inset-block-end: auto !important;
+        transform: none !important;
+        order: 2 !important;
+        width: 100% !important;
+        max-width: 380px !important;
+        margin: -40px auto 10px !important;
+        z-index: 1 !important;
+        pointer-events: none !important;
+      }
+
+      .banner-three-man img {
+        width: 100% !important;
+        max-width: 380px !important;
+        height: auto !important;
+        margin: 0 auto !important;
+        display: block !important;
+      }
+
+      .banner-three-wrap {
+        order: 3 !important;
+        position: relative !important;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin-top: 10px !important;
+        padding-bottom: 35px !important;
+        z-index: 3 !important;
+      }
+
+      .banner-three-center {
+        width: 100% !important;
+        max-width: 540px !important;
+        margin: 0 auto !important;
+        padding: 0 16px !important;
+        text-align: center !important;
+      }
+
+      .banner-three-center-title {
+        font-size: 1.85rem !important;
+        line-height: 1.35 !important;
+        margin-bottom: 22px !important;
+        color: #111111 !important;
+        -webkit-text-stroke: 0.5px #111111 !important;
+        font-weight: 700 !important;
+      }
+
+      .banner-three-button {
+        margin-bottom: 10px !important;
+      }
+    }
+
+    @media screen and (max-width: 575px) {
+      .banner-three-man {
+        max-width: 300px !important;
+        margin: -25px auto 10px !important;
+      }
+
+      .banner-three-man img {
+        max-width: 300px !important;
+      }
+
+      .banner-three-center-title {
+        font-size: 1.55rem !important;
+        margin-bottom: 18px !important;
+      }
+
+      .banner-three-wrap {
+        padding-bottom: 25px !important;
+      }
+    }
+  </style>
 </head>
 
-<body>
-  <!-- Custom Cursor -->
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-follower" id="cursorFollower"></div>
-
-  <!-- Particles Background -->
-  <canvas id="particles" class="particles-canvas"></canvas>
-
-  <!-- ===== NAVBAR ===== -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#home" class="nav-logo">Tushar<span>.</span></a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home" class="nav-link active">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#certificates" class="nav-link">Certificates</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- ===== HERO SECTION ===== -->
-  <section class="hero" id="home">
-    <div class="hero-container">
-      <div class="hero-left reveal">
-        <p class="hero-greeting"><span class="greeting-dot"></span>HEY THERE!</p>
-        <h1 class="hero-title">I'm <span class="golden">Tushar Sonawane</span></h1>
-        <h2 class="hero-subtitle">Aspiring Software Engineer</h2>
-        <div class="hero-typing">
-          <span class="typing-prefix">&gt; </span>
-          <span class="typed-text" id="typedText"></span>
-          <span class="cursor-blink">|</span>
-        </div>
-        <div class="hero-buttons">
-          <a href="assests/Tushar-Sonawane-Resume.pdf" class="btn btn-primary" id="resumeBtn">
-            <i class="fas fa-file-alt"></i> Resume
-          </a>
-          <a href="#projects" class="btn btn-outline">
-            <i class="fas fa-briefcase"></i> My Work
-          </a>
-        </div>
-        <div class="hero-socials">
-          <a href="https://github.com/Tushar-sonawane06" class="social-icon" aria-label="GitHub"><i
-              class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/tushar-sonawane-800422336/" class="social-icon" aria-label="LinkedIn"><i
-              class="fab fa-linkedin-in"></i></a>
-          <a href="https://leetcode.com/u/Tushar_Sonawane/" class="social-icon" aria-label="LeetCode" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em" style="vertical-align:-0.125em"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.426a.61.61 0 0 0 .036-.073.73.73 0 0 0-.008-.802.8.8 0 0 0-.127-.102l-2.44-1.404a.578.578 0 0 0-.589.043.93.93 0 0 0-.199.205l-.948 1.092a2.629 2.629 0 0 1-3.484.217 2.627 2.627 0 0 1-.18-.171l-4.29-4.208a2.482 2.482 0 0 1-.096-3.393l3.82-4.094.026-.028 1.036-1.113c.88-.943 2.373-.957 3.27-.03a2.43 2.43 0 0 1 .239.33l.942 1.504c.146.232.402.38.681.384a.61.61 0 0 0 .212-.037l2.493-.907a.78.78 0 0 0 .506-.738.8.8 0 0 0-.031-.218 5.16 5.16 0 0 0-1.528-2.525L14.44.434A1.374 1.374 0 0 0 13.483 0zm-2.866 12.815a.51.51 0 0 0 .375.165h5.239a.51.51 0 0 0 .375-.165.5.5 0 0 0 .14-.372.5.5 0 0 0-.14-.372.51.51 0 0 0-.375-.165H10.992a.51.51 0 0 0-.375.165.5.5 0 0 0-.14.372.5.5 0 0 0 .14.372z"/></svg>
-          </a>
-          <a href="mailto:tusharsonawane1903@gmail.com" class="social-icon" aria-label="Email"><i
-              class="fas fa-envelope"></i></a>
-        </div>
-      </div>
-      <div class="hero-right reveal">
-        <div class="hero-img-wrap">
-          <div class="hero-img-glow"></div>
-          <img src="assests/profile.jfif" alt="Tushar Sonawane" class="hero-img" />
-          <div class="hero-ring hero-ring-1"></div>
-          <div class="hero-ring hero-ring-2"></div>
-        </div>
+<body class="tw-magic-cursor">
+  <!--==================== Preloader Start ====================-->
+  <div class="preloader">
+    <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
+      <path id="preloaderSvg" d="M0,1005S175,995,500,995s500,5,500,5V0H0Z"></path>
+    </svg>
+    <div class="preloader-heading">
+      <div class="load-text">
+        <span>T</span>
+        <span>u</span>
+        <span>s</span>
+        <span>h</span>
+        <span>a</span>
+        <span>r</span>
       </div>
     </div>
-    <div class="scroll-indicator">
-      <div class="scroll-dot"></div>
-    </div>
-  </section>
+  </div>
+  <!--==================== Preloader End ====================-->
 
-  <!-- ===== ABOUT SECTION ===== -->
-  <section class="about section" id="about">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-tag">Get To Know Me</p>
-        <h2 class="section-title">About <span class="golden">Me</span></h2>
-      </div>
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <p>I'm <strong class="golden">Tushar Sonawane</strong>, an aspiring Software Engineer with a deep passion for
-            crafting elegant, high-performance web applications. My journey in tech is driven by curiosity and a
-            relentless desire to build products that make a real-world impact.</p>
-          <p>I specialize in <strong class="golden">Full Stack Web Development</strong> — from designing sleek,
-            responsive frontends to architecting robust backend systems. I actively contribute to <strong
-              class="golden">Open Source</strong> communities, believing that collaborative development is the backbone
-            of modern innovation.</p>
-          <p>Whether it's mastering a new framework, solving complex algorithmic challenges, or collaborating with a
-            talented team to ship a feature — I thrive on continuous learning and growth. My goal is to leverage
-            technology to create meaningful experiences that bridge the gap between ideas and reality.</p>
-          <p>Outside of coding, I enjoy exploring emerging technologies, contributing to developer communities, and
-            mentoring fellow developers on their journey.</p>
-        </div>
-        <div class="about-stats reveal">
-          <div class="stat-card">
-            <div class="stat-icon"><i class="fas fa-code"></i></div>
-            <div class="stat-number" data-target="3">0</div>
-            <div class="stat-label">Projects Completed</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon"><i class="fas fa-code-branch"></i></div>
-            <div class="stat-number" data-target="5">0</div>
-            <div class="stat-label">Open Source Programs</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon"><i class="fas fa-layer-group"></i></div>
-            <div class="stat-number" data-target="17">0</div>
-            <div class="stat-label">Technologies Learned</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon"><i class="fab fa-github"></i></div>
-            <div class="stat-number" data-target="4000">0</div>
-            <div class="stat-label">GitHub Contributions</div>
-          </div>
-        </div>
-      </div>
+  <!--==================== Overlay Start ====================-->
+  <div class="overlay"></div>
+  <!--==================== Overlay End ====================-->
 
-      <!-- Tech Stack -->
-      <div class="section-header reveal" style="margin-top:5rem;">
-        <p class="section-tag">What I Work With</p>
-        <h2 class="section-title">Tech <span class="golden">Stack</span></h2>
-      </div>
-      <div class="tech-grid reveal">
-        <div class="tech-card"><i class="fab fa-html5"></i><span>HTML</span></div>
-        <div class="tech-card"><i class="fab fa-css3-alt"></i><span>CSS</span></div>
-        <div class="tech-card"><i class="fab fa-js"></i><span>JavaScript</span></div>
-        <div class="tech-card"><i class="fab fa-react"></i><span>React</span></div>
-        <div class="tech-card"><i class="fab fa-node-js"></i><span>Node.js</span></div>
-        <div class="tech-card"><img src="https://www.vectorlogo.zone/logos/expressjs/expressjs-icon.svg" alt="Express"
-            class="tech-svg" /><span>Express.js</span></div>
-        <div class="tech-card"><img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" alt="MongoDB"
-            class="tech-svg" /><span>MongoDB</span></div>
-        <div class="tech-card"><i class="fab fa-git-alt"></i><span>Git</span></div>
-        <div class="tech-card"><i class="fab fa-github"></i><span>GitHub</span></div>
-        <div class="tech-card"><i class="fab fa-docker"></i><span>Docker</span></div>
-        <div class="tech-card"><img src="https://www.vectorlogo.zone/logos/socketio/socketio-icon.svg" alt="Socket.IO"
-            class="tech-svg" /><span>Socket.IO</span></div>
-        <div class="tech-card"><i class="fab fa-java"></i><span>Java</span></div>
-        <div class="tech-card"><img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg"
-            alt="Tailwind CSS" class="tech-svg tech-svg-color" /><span>Tailwind CSS</span></div>
-        <div class="tech-card"><i class="fas fa-plug"></i><span>RESTful APIs</span></div>
-        <div class="tech-card"><i class="fas fa-database"></i><span>SQL</span></div>
-        <div class="tech-card"><i class="fab fa-bootstrap"></i><span>Bootstrap</span></div>
-        <div class="tech-card"><i class="fab fa-python"></i><span>Python</span></div>
-      </div>
-    </div>
-  </section>
+  <!--==================== Sidebar Overlay ====================-->
+  <div class="side-overlay"></div>
+  <!--==================== Sidebar Overlay End ====================-->
 
-  <!-- ===== EXPERIENCE SECTION ===== -->
-  <section class="experience section" id="experience">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-tag">My Journey</p>
-        <h2 class="section-title">Open Source <span class="golden">Experience</span></h2>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item left reveal">
-          <div class="timeline-card">
-            <div class="timeline-icon"><i class="fas fa-code-branch"></i></div>
-            <h3 class="tl-title">Girlscript Summer of Code</h3>
-            <p class="tl-date"><i class="far fa-calendar-alt"></i> July 2025 – October 2025</p>
-            <p class="tl-desc">Contributed to multiple open-source projects under GSSoC, collaborating with global
-              developers. Worked on bug fixes, feature implementations, and documentation improvements — sharpening both
-              technical and team collaboration skills.</p>
-            <div class="tl-tag">Contributor</div>
-          </div>
-          <div class="timeline-dot"></div>
-          <div class="timeline-spacer"></div>
-        </div>
-        <div class="timeline-item right reveal">
-          <div class="timeline-spacer"></div>
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="timeline-icon"><i class="fas fa-leaf"></i></div>
-            <h3 class="tl-title">Hacktoberfest</h3>
-            <p class="tl-date"><i class="far fa-calendar-alt"></i> October 2025</p>
-            <p class="tl-desc">Participated in Hacktoberfest by submitting quality pull requests to open-source
-              repositories. Focused on real-world development challenges, enhancing codebases and fostering a spirit of
-              collaborative engineering in the global dev community.</p>
-            <div class="tl-tag">Contributor</div>
-          </div>
-        </div>
-        <div class="timeline-item left reveal">
-          <div class="timeline-card">
-            <div class="timeline-icon"><i class="fas fa-snowflake"></i></div>
-            <h3 class="tl-title">Winter of Code Social</h3>
-            <p class="tl-date"><i class="far fa-calendar-alt"></i> Dec 2025 – Feb 2026</p>
-            <p class="tl-desc">Engaged in Winter of Code Social, contributing to community-driven projects with a focus
-              on building impactful features. Gained hands-on experience in code reviews, mentorship, and agile
-              collaboration within a distributed team environment.</p>
-            <div class="tl-tag">Contributor</div>
-          </div>
-          <div class="timeline-dot"></div>
-          <div class="timeline-spacer"></div>
-        </div>
-        <div class="timeline-item right reveal">
-          <div class="timeline-spacer"></div>
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="timeline-icon"><i class="fas fa-fire"></i></div>
-            <h3 class="tl-title">Elite Coders Winter of Code</h3>
-            <p class="tl-date"><i class="far fa-calendar-alt"></i> Jan 2026 – March 2026</p>
-            <p class="tl-desc">Selected as a contributor in Elite Coders WoC, working on advanced open-source solutions.
-              Collaborated with elite developers, tackled challenging engineering problems, and delivered
-              production-ready contributions that improved project quality and performance.</p>
-            <div class="tl-tag">Contributor</div>
-          </div>
-        </div>
-        <div class="timeline-item left reveal">
-          <div class="timeline-card">
-            <div class="timeline-icon"><i class="fas fa-rocket"></i></div>
-            <h3 class="tl-title">Nexus Spring of Code</h3>
-            <p class="tl-date"><i class="far fa-calendar-alt"></i> April 2026 – June 2026</p>
-            <p class="tl-desc">Currently participating in Nexus Spring of Code, driving feature development and
-              mentoring new contributors. Leading sub-modules, engaging in pair programming sessions, and fostering a
-              collaborative ecosystem that celebrates teamwork and innovative problem-solving.</p>
-            <div class="tl-tag">Project Admin</div>
-          </div>
-          <div class="timeline-dot"></div>
-          <div class="timeline-spacer"></div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!--==================== Begin Magic Cursor Start ====================-->
+  <div id="magic-cursor">
+    <div id="ball"></div>
+  </div>
+  <!--==================== Begin Magic Cursor End ====================-->
 
-  <!-- ===== PROJECTS SECTION ===== -->
-  <section class="projects section" id="projects">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-tag">What I've Built</p>
-        <h2 class="section-title">Featured <span class="golden">Projects</span></h2>
-      </div>
-      <div class="projects-grid">
-        <!-- WanderLust -->
-        <div class="project-card reveal">
-          <div class="project-img-wrap">
-            <img src="assests/wanderlust.PNG" alt="WanderLust" />
-            <div class="project-overlay">
-              <a href="https://wanderlust.tushar-sonawane.xyz/" class="btn btn-sm">Live Demo <i
-                  class="fas fa-external-link-alt"></i></a>
-            </div>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">WanderLust</h3>
-            <p class="project-desc">A full-stack hotel booking platform with authentication, image uploads, maps
-              integration, and responsive UI built for seamless travel planning.</p>
-            <div class="project-tags">
-              <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MongoDB</span><span
-                class="tag">EJS</span><span class="tag">Cloudinary</span>
-            </div>
-            <div class="project-links">
-              <a href="https://wanderlust.tushar-sonawane.xyz/" class="btn btn-sm">Live Demo <i
-                  class="fas fa-external-link-alt"></i></a>
-              <a href="https://github.com/Tushar-sonawane06/WanderLust" class="btn btn-outline-sm"><i
-                  class="fab fa-github"></i> GitHub</a>
-            </div>
-          </div>
-        </div>
-        <!-- Jeni -->
-        <div class="project-card reveal">
-          <div class="project-img-wrap">
-            <img src="assests/jeni.PNG" alt="Jeni AI Chatbot" />
-            <div class="project-overlay">
-              <a href="https://jeniai.tushar-sonawane.xyz/" class="btn btn-sm">Live Demo <i
-                  class="fas fa-external-link-alt"></i></a>
-            </div>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">Jeni — AI Chatbot</h3>
-            <p class="project-desc">An intelligent AI chatbot powered by the Groq API with a sleek, modern
-              conversational interface for natural, real-time interactions.</p>
-            <div class="project-tags">
-              <span class="tag">React</span><span class="tag">Groq API</span><span class="tag">Node.js</span><span
-                class="tag">CSS</span>
-            </div>
-            <div class="project-links">
-              <a href="https://jeniai.tushar-sonawane.xyz/" class="btn btn-sm">Live Demo<i
-                  class="fas fa-external-link-alt"></i></a>
-              <a href="https://github.com/Tushar-sonawane06/ChatBot" class="btn btn-outline-sm"><i
-                  class="fab fa-github"></i> GitHub</a>
-            </div>
-          </div>
-        </div>
-        <!-- DevSync -->
-        <div class="project-card reveal">
-          <div class="project-img-wrap">
-            <img src="assests/devsync.PNG" alt="DevSync" />
-            <div class="project-overlay">
-              <a href="https://devsync.tushar-sonawane.xyz/" class="btn btn-sm">Live Demo <i
-                  class="fas fa-external-link-alt"></i></a>
-            </div>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">DevSync — Code Editor</h3>
-            <p class="project-desc">A real-time collaborative code editor supporting multiple users simultaneously,
-              powered by Socket.IO, Monaco Editor, and Yjs for conflict-free syncing.</p>
-            <div class="project-tags">
-              <span class="tag">Socket.IO</span><span class="tag">Monaco</span><span class="tag">Yjs</span><span
-                class="tag">React</span><span class="tag">Node.js</span>
-            </div>
-            <div class="project-links">
-              <a href="https://devsync.tushar-sonawane.xyz/" class="btn btn-sm">Live Demo <i
-                  class="fas fa-external-link-alt"></i></a>
-              <a href="https://github.com/Tushar-sonawane06/DevSync" class="btn btn-outline-sm"><i
-                  class="fab fa-github"></i> GitHub</a>
-            </div>
-          </div>
-        </div>
-        <div class="project-card reveal">
-          <div class="project-img-wrap">
-            <img src="assests/meetsphere.PNG" alt="Jeni AI Chatbot" />
-            <div class="project-overlay">
-              <a href="https://meetsphere.tushar-sonawane.xyz/" class="btn btn-sm">Live Demo <i
-                  class="fas fa-external-link-alt"></i></a>
-            </div>
-          </div>
-          <div class="project-body">
-            <h3 class="project-title">MeetSphere</h3>
-            <p class="project-desc">A video conferencing web application handled using Socket.io and webRTC</p>
-            <div class="project-tags">
-              <span class="tag">React</span><span class="tag">Socket.io</span><span class="tag">Node.js</span><span
-                class="tag">Tailwind</span><span class="tag">WebRTC</span>
-            </div>
-            <div class="project-links">
-              <a href="https://meetsphere.tushar-sonawane.xyz/" class="btn btn-sm">Live Demo<i
-                  class="fas fa-external-link-alt"></i></a>
-              <a href="https://github.com/Tushar-sonawane06/MeetSphere" class="btn btn-outline-sm"><i
-                  class="fab fa-github"></i> GitHub</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Custom Toast Message start -->
+  <div id="toast-container"></div>
+  <!-- Custom Toast Message End -->
 
-  <!-- ===== CERTIFICATES SECTION ===== -->
-  <section class="certificates section" id="certificates">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-tag">My Achievements</p>
-        <h2 class="section-title">Certificates &amp; <span class="golden">Recognition</span></h2>
-      </div>
-      <div class="cert-grid">
-        <div class="cert-card reveal">
-          <div class="cert-img-wrap">
-            <img src="assests/postman-certificate2.jpg" alt="Postman Certificate" />
-          </div>
-          <div class="cert-body">
-            <h3>Postman Certificate</h3>
-            <p>Validated expertise in API design, testing, and documentation using the Postman platform — a core skill
-              for modern backend development.</p>
-            <a href="#" class="btn btn-sm">View Certificate <i class="fas fa-external-link-alt"></i></a>
-          </div>
-        </div>
-        <div class="cert-card reveal">
-          <div class="cert-img-wrap">
-            <img src="assests/webcertmain.PNG" alt="Web Dev Certificate" />
-          </div>
-          <div class="cert-body">
-            <h3>Web Development</h3>
-            <p>Successfully completed Apna College's Web Development Course, covering modern full-stack development with the MERN stack.</p>
-            <a href="assests/webcertmain.PNG" class="btn btn-sm">View Certificate <i
-                class="fas fa-external-link-alt"></i></a>
-          </div>
-        </div>
-        <div class="cert-card reveal">
-          <div class="cert-img-wrap">
-            <img src="assests/gssoc-certificate.jfif" alt="GSSoC" />
-          </div>
-          <div class="cert-body">
-            <h3>Girlscript Summer of Code</h3>
-            <p>Recognized for impactful open-source contributions during GSSoC 2025 — one of India's largest open-source
-              programs.</p>
-            <a href="#" class="btn btn-sm">View Certificate <i class="fas fa-external-link-alt"></i></a>
-          </div>
-        </div>
-        <div class="cert-card reveal">
-          <div class="cert-img-wrap">
-            <img src="assests/wocs-certificate.jfif" alt="Winter of Code Social" />
-          </div>
-          <div class="cert-body">
-            <h3>Winter of Code Social</h3>
-            <p>Certificate of participation and contribution in Winter of Code Social — showcasing dedication to
-              collaborative open-source development.</p>
-            <a href="#" class="btn btn-sm">View Certificate <i class="fas fa-external-link-alt"></i></a>
-          </div>
-        </div>
-        <div class="cert-card reveal">
-          <div class="cert-img-wrap">
-            <img src="assests/ecwoc-certificate.jfif" alt="Elite Coders WoC" />
-          </div>
-          <div class="cert-body">
-            <h3>Elite Coders Winter of Code</h3>
-            <p>Awarded for outstanding contributions in Elite Coders WoC — demonstrating advanced technical skills and
-              collaborative excellence.</p>
-            <a href="#" class="btn btn-sm">View Certificate <i class="fas fa-external-link-alt"></i></a>
-          </div>
-        </div>
-        <div class="cert-card reveal">
-          <div class="cert-img-wrap">
-            <img src="assests/nsoccert.jfif" alt="Elite Coders WoC" />
-          </div>
-          <div class="cert-body">
-            <h3>Nexus Spring Of Code</h3>
-            <p>Ranked #1 Project Admin at Nexus Spring of Code, leading and managing the UI-Verse open-source project while coordinating contributors and project growth.</p>
-            <a href="assests/nsoccert.jfif" class="btn btn-sm">View Certificate <i
-                class="fas fa-external-link-alt"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- ==================== Scroll to Top ==================== -->
+  <div class="back-to-top-wrapper">
+    <button id="back_to_top" type="button" class="back-to-top-btn">
+      <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M11 6L6 1L1 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+    </button>
+  </div>
+  <!-- ==================== Scroll to Top End ==================== -->
 
-  <!-- ===== CONTACT SECTION ===== -->
-  <section class="contact section" id="contact">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-tag">Get In Touch</p>
-        <h2 class="section-title">Contact <span class="golden">Me</span></h2>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-info reveal">
-          <p class="contact-intro">Have a project in mind, want to collaborate, or just say hi? My inbox is always open.
-            I'll get back to you as soon as possible!</p>
-          <div class="contact-links">
-            <a href="mailto:tusharsonawane1903@gmail.com" class="contact-link">
-              <div class="cl-icon"><i class="fas fa-envelope"></i></div>
-              <div><span>Email</span>
-                <p>tusharsonawane1903@gmail.com</p>
-              </div>
-            </a>
-            <a href="https://www.linkedin.com/in/tushar-sonawane-800422336/" class="contact-link">
-              <div class="cl-icon"><i class="fab fa-linkedin-in"></i></div>
-              <div><span>LinkedIn</span>
-                <p>Tushar Sonawane</p>
-              </div>
-            </a>
-            <a href="https://github.com/Tushar-sonawane06" class="contact-link">
-              <div class="cl-icon"><i class="fab fa-github"></i></div>
-              <div><span>GitHub</span>
-                <p>Tushar-sonawane06</p>
-              </div>
-            </a>
-            <a href="https://leetcode.com/u/Tushar_Sonawane/" class="contact-link" target="_blank" rel="noopener noreferrer">
-              <div class="cl-icon"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em" style="vertical-align:-0.125em"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.426a.61.61 0 0 0 .036-.073.73.73 0 0 0-.008-.802.8.8 0 0 0-.127-.102l-2.44-1.404a.578.578 0 0 0-.589.043.93.93 0 0 0-.199.205l-.948 1.092a2.629 2.629 0 0 1-3.484.217 2.627 2.627 0 0 1-.18-.171l-4.29-4.208a2.482 2.482 0 0 1-.096-3.393l3.82-4.094.026-.028 1.036-1.113c.88-.943 2.373-.957 3.27-.03a2.43 2.43 0 0 1 .239.33l.942 1.504c.146.232.402.38.681.384a.61.61 0 0 0 .212-.037l2.493-.907a.78.78 0 0 0 .506-.738.8.8 0 0 0-.031-.218 5.16 5.16 0 0 0-1.528-2.525L14.44.434A1.374 1.374 0 0 0 13.483 0zm-2.866 12.815a.51.51 0 0 0 .375.165h5.239a.51.51 0 0 0 .375-.165.5.5 0 0 0 .14-.372.5.5 0 0 0-.14-.372.51.51 0 0 0-.375-.165H10.992a.51.51 0 0 0-.375.165.5.5 0 0 0-.14.372.5.5 0 0 0 .14.372z"/></svg></div>
-              <div><span>LeetCode</span>
-                <p>Tushar_Sonawane</p>
-              </div>
-            </a>
+  <!-- ==================== Offcanvus Mobile Menu Start ==================== -->
+  <div class="tw-offcanvas-2-area p-relative">
+    <div class="tw-offcanvas-2-bg is-left left-box"></div>
+    <div class="tw-offcanvas-2-bg is-right right-box d-none d-md-block"></div>
+    <div class="tw-offcanvas-2-wrapper">
+      <div class="tw-offcanvas-2-left left-box">
+        <div class="tw-offcanvas-2-left-wrap d-flex justify-content-between align-items-center">
+          <div class="twoffcanvas__logo">
+            <a class="logo-1" href="#banner"><img src="assets/images/logo/logo.png" alt="Tushar Sonawane" /></a>
           </div>
-        </div>
-        <div class="contact-form-wrap reveal">
-          <form class="contact-form" id="contactForm" action="https://formsubmit.co/tusharsonawane1903@gmail.com" method="POST">
-            <!-- FormSubmit Configuration -->
-            <input type="hidden" name="_subject" id="emailSubject" value="New Portfolio Contact Message" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
-            <!-- Honeypot Anti-Spam Field -->
-            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
-
-            <div class="form-group">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" name="name" placeholder="John Doe" required />
-            </div>
-            <div class="form-group">
-              <label for="email">Your Email</label>
-              <input type="email" id="email" name="email" placeholder="john@example.com" required />
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..."
-                required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary w-full" id="sendBtn">
-              <span>Send Message</span> <i class="fas fa-paper-plane"></i>
+          <div class="tw-offcanvas-2-close d-md-none text-end">
+            <button class="tw-offcanvas-2-close-btn tw-offcanvas-2-close-btn">
+              <span class="text">
+                <span class="text-white">close</span>
+              </span>
+              <span class="d-inline-block">
+                <span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32.621" height="1.00918"
+                      transform="matrix(0.704882 0.709325 -0.704882 0.709325 1.0061 0)" fill="currentcolor" />
+                    <rect width="32.621" height="1.00918"
+                      transform="matrix(0.704882 -0.709325 0.704882 0.709325 0 23.2842)" fill="currentcolor" />
+                  </svg>
+                </span>
+              </span>
             </button>
-            <div id="formStatus" class="form-status" style="display: none;" role="alert"></div>
-          </form>
+          </div>
+        </div>
+        <div class="tw-main-menu-mobile menu-hover-active counter-row">
+          <nav></nav>
+        </div>
+      </div>
+      <div class="tw-offcanvas-2-right right-box d-none d-md-block p-relative">
+        <div class="tw-offcanvas-2-close text-end">
+          <button class="tw-offcanvas-2-close-btn">
+            <span class="text">
+              <span>close</span>
+            </span>
+            <span class="d-inline-block">
+              <span>
+                <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9.80859 9.80762L28.1934 28.1924" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M9.80859 28.1924L28.1934 9.80761" stroke="currentColor" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </span>
+          </button>
+        </div>
+        <div class="tw-offcanvas-2-right-inner d-flex flex-column justify-content-between h-100">
+          <div class="twoffcanvas__contact-info">
+            <div class="twoffcanvas__contact-title">
+              <h5 class="text-white">Contact Me</h5>
+            </div>
+            <ul>
+              <li>
+                <span class="text-main-two-600 tw-text-xl"><i class="ph ph-envelope"></i></span>
+                <a class="text-white" href="mailto:tusharsonawane1903@gmail.com"><span
+                    class="__cf_email__">tusharsonawane1903@gmail.com</span></a>
+              </li>
+              <li>
+                <span class="text-main-two-600 tw-text-xl"><i class="ph ph-github-logo"></i></span>
+                <a class="text-white" href="https://github.com/Tushar-sonawane06"
+                  target="_blank">github.com/Tushar-sonawane06</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-social" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <ul class="tw-gap-2">
+              <li>
+                <a href="https://github.com/Tushar-sonawane06" target="_blank">
+                  <span class="active-media d-flex align-items-center tw-gap-1">GitHub <i
+                      class="ph ph-arrow-bend-up-right"></i>
+                  </span>
+                  <span class="hover-media"><i class="ph ph-github-logo"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/tushar-sonawane-800422336/" target="_blank">
+                  <span class="active-media d-flex align-items-center tw-gap-1">LINKEDIN <i
+                      class="ph ph-arrow-bend-up-right"></i>
+                  </span>
+                  <span class="hover-media"><i class="ph ph-linkedin-logo"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://leetcode.com/u/Tushar_Sonawane/" target="_blank">
+                  <span class="active-media d-flex align-items-center tw-gap-1">LEETCODE <i
+                      class="ph ph-arrow-bend-up-right"></i>
+                  </span>
+                  <span class="hover-media"><i class="ph ph-code"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+  <!-- ==================== Offcanvus Mobile Menu End ==================== -->
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <p class="footer-copy">Designed &amp; Developed by <span class="golden">Tushar Sonawane</span></p>
-        <div class="footer-socials">
-          <a href="https://github.com/Tushar-sonawane06/" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/tushar-sonawane-800422336/" aria-label="LinkedIn"><i
-              class="fab fa-linkedin-in"></i></a>
-          <a href="https://leetcode.com/u/Tushar_Sonawane/" aria-label="LeetCode" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em" style="vertical-align:-0.125em"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.426a.61.61 0 0 0 .036-.073.73.73 0 0 0-.008-.802.8.8 0 0 0-.127-.102l-2.44-1.404a.578.578 0 0 0-.589.043.93.93 0 0 0-.199.205l-.948 1.092a2.629 2.629 0 0 1-3.484.217 2.627 2.627 0 0 1-.18-.171l-4.29-4.208a2.482 2.482 0 0 1-.096-3.393l3.82-4.094.026-.028 1.036-1.113c.88-.943 2.373-.957 3.27-.03a2.43 2.43 0 0 1 .239.33l.942 1.504c.146.232.402.38.681.384a.61.61 0 0 0 .212-.037l2.493-.907a.78.78 0 0 0 .506-.738.8.8 0 0 0-.031-.218 5.16 5.16 0 0 0-1.528-2.525L14.44.434A1.374 1.374 0 0 0 13.483 0zm-2.866 12.815a.51.51 0 0 0 .375.165h5.239a.51.51 0 0 0 .375-.165.5.5 0 0 0 .14-.372.5.5 0 0 0-.14-.372.51.51 0 0 0-.375-.165H10.992a.51.51 0 0 0-.375.165.5.5 0 0 0-.14.372.5.5 0 0 0 .14.372z"/></svg></a>
-          <a href="mailto:tusharsonawane1903@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+  <!-- ==================== Header Start ==================== -->
+  <header class="header header-two header-three tw-transition-all tw-z-99 position-relative">
+    <div class="container tw-container-1800-px">
+      <nav class="d-flex align-items-center justify-content-between position-relative">
+        <!-- Logo Start -->
+        <div class="header-three-logo tw-rounded-md">
+          <a href="#banner" class="link">
+            <h1><b>Tushar Sonawane</b></h1>
+          </a>
+        </div>
+        <!-- Logo End  -->
+
+        <!-- Social Links Start  -->
+        <div class="header-three-social d-none d-lg-block">
+          <ul class="d-flex tw-gap-205 align-items-center">
+            <li>
+              <a class="tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center text-heading tw-text-xl tw-rounded-md tw-transition-3 hover-text-main-600"
+                href="https://github.com/Tushar-sonawane06" target="_blank" title="GitHub" aria-label="GitHub">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center text-heading tw-text-xl tw-rounded-md tw-transition-3 hover-text-main-600"
+                href="https://www.linkedin.com/in/tushar-sonawane-800422336/" target="_blank" title="LinkedIn"
+                aria-label="LinkedIn">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.64 1.64 0 0 0-1.64 1.64c0 .9.74 1.64 1.64 1.64s1.64-.74 1.64-1.64c0-.9-.74-1.64-1.64-1.64z" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center text-heading tw-text-xl tw-rounded-md tw-transition-3 hover-text-main-600"
+                href="https://leetcode.com/u/Tushar_Sonawane/" target="_blank" title="LeetCode" aria-label="LeetCode">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 4.818 3.662 5.895 5.895 0 0 0 3.343-.59 5.928 5.928 0 0 0 2.366-2.383l3.488-6.155a1.396 1.396 0 0 0-.499-1.911 1.398 1.398 0 0 0-1.914.499l-3.484 6.151a3.14 3.14 0 0 1-1.252 1.262 3.11 3.11 0 0 1-1.769.314 3.145 3.145 0 0 1-2.553-1.942 3.09 3.09 0 0 1-.186-.541 2.946 2.946 0 0 1-.033-1.252 3.12 3.12 0 0 1 .643-1.116l3.85-4.12 5.4-5.787a1.376 1.376 0 0 0-.96-2.22zM10.22 17.18a1.396 1.396 0 0 0 1.914.499l3.484-6.151a1.396 1.396 0 0 0-.498-1.914 1.396 1.396 0 0 0-1.914.499l-3.484 6.151a1.396 1.396 0 0 0 .498 1.916z" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a class="tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center text-heading tw-text-xl tw-rounded-md tw-transition-3 hover-text-main-600"
+                href="mailto:tusharsonawane1903@gmail.com" title="Email" aria-label="Email">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- Social Links End  -->
+
+        <!-- Hidden Menu for mobile nav -->
+        <div class="header-menu d-none">
+          <div class="main-menu">
+            <nav class="tw-main-menu-content">
+              <ul>
+                <li><a class="color-active" href="#banner">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Header Right start -->
+        <div class="header-right d-flex align-items-center tw-gap-705">
+          <!-- Menu Button Start  -->
+          <div class="header-three-menu">
+            <button
+              class="tw-offcanvas-open-btn tw-w-13 tw-h-13 lh-1 d-inline-flex justify-content-center align-items-center tw-transition-3 tw-rounded-md">
+              <span><img class="tw-transition-3" src="assets/images/icons/header-three-toggle.svg"
+                  alt="toggle" /></span>
+            </button>
+          </div>
+          <!-- Menu Button End  -->
+
+          <!-- Header Button Start  -->
+          <div class="header-three-button d-none d-md-block">
+            <a class="tw-hover-btn bg-black text-white fw-bold tw-py-4 tw-px-10 d-inline-block hover-text-white text-uppercase tw-rounded-md"
+              href="assests/Tushar-Sonawane-Resume.pdf" download>
+              download cv
+              <span class="tw-hover-btn-circle-dot bg-main-two-600"></span>
+            </a>
+          </div>
+          <!-- Header Button End  -->
+        </div>
+
+        <!-- Header Right End  -->
+      </nav>
+    </div>
+  </header>
+  <!-- ==================== Header End ==================== -->
+
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+
+      <!-- ==================== Banner / Hero Section ==================== -->
+      <section class="banner-three-area" id="banner">
+        <div class="container tw-container-1800-px">
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="banner-three-wrapper position-relative z-1">
+                <div class="banner-three-man position-absolute start-50 translate-middle-x">
+                  <img src="assests/big-profile2.png" alt="Tushar Sonawane" />
+                </div>
+                <h1 class="banner-three-title text-black tw-mb-30">
+                  developer
+                </h1>
+                <div class="banner-three-wrap d-flex justify-content-between align-items-end position-relative z-1">
+                  <div class="banner-three-left tw-rounded-lg" data-aos="fade-up" data-aos-duration="1000"
+                    data-aos-delay="200">
+                    <h2 class="banner-three-left-title tw-text-3xl tw-mb-6">
+                      Hello! I'm Tushar <br />
+                      Sonawane. An aspiring software engineer and full stack developer from Pune.
+                    </h2>
+                    <div class="banner-three-list">
+                      <ul>
+                        <li class="tw-text-lg fw-medium d-inline-flex align-items-center tw-gap-2 tw-mb-4">
+                          <span><img src="assets/images/icons/banner-three-pluse.svg" alt="plus" /></span>
+                          Full Stack Development
+                        </li>
+                        <li class="tw-text-lg fw-medium d-inline-flex align-items-center tw-gap-2 tw-mb-4">
+                          <span><img src="assets/images/icons/banner-three-pluse.svg" alt="plus" /></span>
+                          Open Source Contributions
+                        </li>
+                        <li class="tw-text-lg fw-medium d-inline-flex align-items-center tw-gap-2 tw-mb-4">
+                          <span><img src="assets/images/icons/banner-three-pluse.svg" alt="plus" /></span>
+                          MERN Stack
+                        </li>
+                        <li class="tw-text-lg fw-medium d-inline-flex align-items-center tw-gap-2 tw-mb-4">
+                          <span><img src="assets/images/icons/banner-three-pluse.svg" alt="plus" /></span>
+                          Real-Time Applications
+                        </li>
+                        <li class="tw-text-lg fw-medium d-inline-flex align-items-center tw-gap-2 tw-mb-4">
+                          <span><img src="assets/images/icons/banner-three-pluse.svg" alt="plus" /></span>
+                          Problem Solving
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="banner-three-center text-center" data-aos="fade-up" data-aos-duration="1000"
+                    data-aos-delay="200">
+                    <h3 class="banner-three-center-title tw-text-120">
+                      Crafting elegant, high-performance web applications.
+                    </h3>
+                    <div class="banner-three-button">
+                      <a class="tw-hover-btn bg-black text-white fw-bold tw-py-4 tw-px-10 d-inline-block hover-text-white text-uppercase tw-rounded-lg"
+                        href="#projects">
+                        view projects
+                        <span class="tw-hover-btn-circle-dot bg-main-two-600"></span>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="banner-three-right tw-rounded-lg" data-aos="fade-up" data-aos-duration="1000"
+                    data-aos-delay="300">
+                    <div class="banner-three-counter-item tw-rounded-md tw-mb-4 position-relative">
+                      <h4
+                        class="banner-three-counter-title tw-text-101 fw-semibold font-heading text-heading tw-mb-2 lh-1">
+                        <span class="purecounter font-heading" data-purecounter-duration="2"
+                          data-purecounter-end="4"></span>
+                        +
+                      </h4>
+                      <p class="banner-three-counter-paragraph tw-text-lg fw-medium text-heading">
+                        Projects Completed
+                      </p>
+                    </div>
+                    <div class="banner-three-counter-item tw-rounded-md tw-mb-4 ms-auto bg-black">
+                      <h4
+                        class="banner-three-counter-title tw-text-101 fw-semibold font-heading text-white tw-mb-2 lh-1">
+                        <span class="purecounter font-heading" data-purecounter-duration="4"
+                          data-purecounter-end="5"></span>
+                        +
+                      </h4>
+                      <p class="banner-three-counter-paragraph tw-text-lg fw-medium text-white">
+                        Open Source Programs
+                      </p>
+                    </div>
+                    <div class="banner-three-counter-item tw-rounded-md tw-mb-4">
+                      <h4
+                        class="banner-three-counter-title tw-text-101 fw-semibold font-heading text-heading tw-mb-2 lh-1">
+                        <span class="purecounter font-heading" data-purecounter-duration="3"
+                          data-purecounter-end="4000"></span>
+                        +
+                      </h4>
+                      <p class="banner-three-counter-paragraph tw-text-lg fw-medium text-heading">
+                        GitHub Contributions
+                      </p>
+                    </div>
+                  </div>
+                  <div class="banner-three-line-shape position-absolute start-50 translate-middle-x z-n1">
+                    <img src="assets/images/shapes/banner-three-shape.png" alt="shape" />
+                    <div class="banner-three-carcel-shape">
+                      <div><span></span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== About Section ==================== -->
+      <section class="about-three-area py-120 position-relative z-1" id="about">
+        <div class="container tw-container-1800-px">
+          <div class="about-three-top position-relative z-1">
+            <div class="row justify-content-center tw-mb-21">
+              <div class="col-xl-9">
+                <div class="text-center">
+                  <h2 class="about-three-title text-heading tw-text-15 tw-itm-title tw-itm-anim">
+                    I'm dedicated to crafting elegant, high-performance web
+                    applications with a relentless desire to build products
+                    that make a real-world impact. My work speaks louder
+                    than words—explore the results.
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-xl-9 col-lg-10">
+                <div class="about-three-right text-center mx-auto" data-aos="fade-up" data-aos-duration="1000"
+                  data-aos-delay="300" style="max-width: 860px; margin: 0 auto;">
+                  <div>
+                    <p class="tw-text-xl tw-mb-10 text-center">
+                      I'm <strong>Tushar Sonawane</strong>, an aspiring Software Engineer with a deep passion for
+                      crafting elegant, high-performance web applications. My journey in tech is driven by curiosity and
+                      a
+                      relentless desire to build products that make a real-world impact.
+                    </p>
+                    <p class="tw-text-xl tw-mb-10 text-center">
+                      I specialize in <strong>Full Stack Web Development</strong> — from designing sleek,
+                      responsive frontends to architecting robust backend systems. I actively contribute to <strong>Open
+                        Source</strong>
+                      communities, believing that collaborative development is the backbone of modern innovation.
+                    </p>
+                    <p class="tw-text-xl tw-mb-10 text-center">
+                      Whether it's mastering a new framework, solving complex algorithmic challenges, or collaborating
+                      with a
+                      talented team to ship a feature — I thrive on continuous learning and growth. My goal is to
+                      leverage
+                      technology to create meaningful experiences that bridge the gap between ideas and reality.
+                    </p>
+                  </div>
+                  <div class="about-three-counter d-inline-block text-center tw-mt-4">
+                    <div class="tw-hover-btn-wrapper d-inline-block">
+                      <a class="tw-btn-circle tw-hover-btn-item tw-hover-btn tw-w-160-px tw-h-160-px lh-1 d-inline-flex justify-content-center align-items-center rounded-circle position-relative overflow-hidden border border-1 border-neutral-200"
+                        href="#projects">
+                        <span class="d-flex flex-column justify-content-center">
+                          <span
+                            class="tw-btn-circle-icon text-heading tw-text-8 tw-transition-3 font-heading fw-medium">17+</span>
+                          <span
+                            class="text-heading fw-bold text-center tw-transition-3 tw-text-2xl fw-medium">Technologies
+                            Learned</span>
+                        </span>
+                        <i class="tw-btn-circle-dot bg-main-two-600"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="about-three-wrap-shape d-flex justify-content-between">
+              <div class="banner-three-counter-item tw-rounded-md position-relative" data-aos="fade-up"
+                data-aos-duration="1000" data-aos-delay="200">
+                <h2 class="banner-three-counter-title tw-text-101 fw-semibold font-heading text-heading tw-mb-2 lh-1">
+                  <span class="purecounter font-heading" data-purecounter-duration="4" data-purecounter-end="4"></span>
+                  +
+                </h2>
+                <p class="banner-three-counter-paragraph tw-text-lg fw-medium text-heading">
+                  Projects Completed
+                </p>
+              </div>
+              <div class="banner-three-counter-item tw-rounded-md position-relative" data-aos="fade-up"
+                data-aos-duration="1000" data-aos-delay="300">
+                <h2 class="banner-three-counter-title tw-text-101 fw-semibold font-heading text-heading tw-mb-2 lh-1">
+                  <span class="purecounter font-heading" data-purecounter-duration="2"
+                    data-purecounter-end="4000"></span>
+                  +
+                </h2>
+                <p class="banner-three-counter-paragraph tw-text-lg fw-medium text-heading">
+                  GitHub Contributions
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <img class="about-three-shape position-absolute start-0 w-100"
+            src="assets/images/shapes/about-three-shape.png" alt="shape" />
+        </div>
+      </section>
+
+      <!-- ======================== Tech Stack Marquee ========================= -->
+      <div class="marquee tw-pt-17 bg-black">
+        <div class="marquee_left d-flex align-items-center justify-content-between tw-gap-16 overflow-hidden">
+          <div>
+            <h2 class="marquee-two-title marquee-three-title text-uppercase text-white">
+              Tech Stack <span class="text-white">-</span>
+            </h2>
+          </div>
+          <div>
+            <h2 class="marquee-two-title marquee-three-title text-uppercase text-stroke">
+              Tech Stack <span class="text-white">-</span>
+            </h2>
+          </div>
+          <div>
+            <h2 class="marquee-two-title marquee-three-title text-uppercase text-white">
+              Tech Stack <span class="text-white">-</span>
+            </h2>
+          </div>
+          <div>
+            <h2 class="marquee-two-title marquee-three-title text-uppercase text-stroke">
+              Tech Stack <span class="text-white">-</span>
+            </h2>
+          </div>
+          <div>
+            <h2 class="marquee-two-title marquee-three-title text-uppercase text-white">
+              Tech Stack <span class="text-white">-</span>
+            </h2>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
 
-  <script src="script.js"></script>
+      <!-- ==================== Skills / Services Section ==================== -->
+      <section class="service-three-area bg-black pt-120 tw-pb-15" id="skills">
+        <div class="container tw-container-1800-px">
+          <div class="row">
+            <div class="col-12">
+              <div class="service-three-wrapper">
+                <!-- Skill 1: Frontend -->
+                <div class="service-three-single" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="200">
+                  <div class="service-three-item d-flex justify-content-between align-items-center">
+                    <div class="service-three-content d-flex tw-gap-14">
+                      <div>
+                        <span
+                          class="service-three-number text-white tw-text-xl d-inline-flex align-items-center tw-gap-3 lh-1 tw-mt-5 tw-transition-3">01
+                          <img class="tw-transition-3" src="assets/images/icons/service-three-arrow.svg"
+                            alt="arrow" /></span>
+                      </div>
+                      <div>
+                        <div>
+                          <h2 class="service-three-title tw-text-15 text-white tw-mb-4">
+                            Frontend Development
+                          </h2>
+                        </div>
+                        <div class="portfolio-list portfolio-two-list">
+                          <ul class="d-flex tw-gap-205 flex-wrap">
+                            <li>
+                              <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                href="#">HTML</a>
+                            </li>
+                            <li>
+                              <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                href="#">CSS</a>
+                            </li>
+                            <li>
+                              <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                href="#">JavaScript</a>
+                            </li>
+                            <li>
+                              <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                href="#">React.js</a>
+                            </li>
+                            <li>
+                              <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                href="#">Next.js</a>
+                            </li>
+                            <li>
+                              <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                href="#">Tailwind CSS</a>
+                            </li>
+                            <li>
+                              <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                href="#">Material UI</a>
+                            </li>
+                            <li>
+                              <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                href="#">Bootstrap</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="service-three-thumb">
+                      <img src="assets/images/thumbs/service-three-thumb1.png" alt="Frontend" />
+                    </div>
+                  </div>
+                </div>
+                <!-- Skill 2: Backend -->
+                <div class="service-three-single ms-auto" data-aos="fade-left" data-aos-duration="2000"
+                  data-aos-delay="300">
+                  <div class="service-three-item d-flex justify-content-between align-items-center">
+                    <div class="service-three-content d-flex tw-gap-14">
+                      <div>
+                        <span
+                          class="service-three-number text-white tw-text-xl d-inline-flex align-items-center tw-gap-3 lh-1 tw-mt-5 tw-transition-3">02
+                          <img class="tw-transition-3" src="assets/images/icons/service-three-arrow.svg"
+                            alt="arrow" /></span>
+                      </div>
+                      <div>
+                        <div>
+                          <h2 class="service-three-title tw-text-15 text-white tw-mb-4">
+                            Backend Development
+                          </h2>
+                        </div>
+                        <div class="portfolio-list portfolio-two-list">
+                          <ul class="d-flex tw-gap-205 flex-wrap">
+                            <li>
+                              <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                href="#">Node.js</a>
+                            </li>
+                            <li>
+                              <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                href="#">Express.js</a>
+                            </li>
+                            <li>
+                              <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                href="#">MongoDB</a>
+                            </li>
+                            <li>
+                              <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                href="#">SQL</a>
+                            </li>
+                            <li>
+                              <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                href="#">RESTful APIs</a>
+                            </li>
+                            <li>
+                              <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                href="#">Authentcation & Authorization</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="service-three-thumb">
+                      <img src="assets/images/thumbs/service-three-thumb2.png" alt="Backend" />
+                    </div>
+                  </div>
+                </div>
+                <!-- Skill 3: Real-Time & DevOps -->
+                <div class="service-three-single" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="400">
+                  <div class="service-three-item d-flex justify-content-between align-items-center">
+                    <div class="service-three-content d-flex tw-gap-14">
+                      <div>
+                        <span
+                          class="service-three-number text-white tw-text-xl d-inline-flex align-items-center tw-gap-3 lh-1 tw-mt-5 tw-transition-3">03
+                          <img class="tw-transition-3" src="assets/images/icons/service-three-arrow.svg"
+                            alt="arrow" /></span>
+                      </div>
+                      <div>
+                        <div>
+                          <h2 class="service-three-title tw-text-15 text-white tw-mb-4">
+                            Real-Time & DevOps
+                          </h2>
+                        </div>
+                        <div class="portfolio-list portfolio-two-list">
+                          <ul class="d-flex tw-gap-205 flex-wrap">
+                            <li>
+                              <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                href="#">Socket.IO</a>
+                            </li>
+                            <li>
+                              <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                href="#">WebRTC</a>
+                            </li>
+                            <li>
+                              <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                href="#">Docker</a>
+                            </li>
+                            <li>
+                              <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                href="#">Git</a>
+                            </li>
+                            <li>
+                              <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                href="#">GitHub</a>
+                            </li>
+                            <li>
+                              <a class="text-uppercase text-white tw-text-sm fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-heading tw-transition-3"
+                                href="#">CI/CD</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="service-three-thumb">
+                      <img src="assets/images/thumbs/service-three-thumb3.png" alt="Real-Time" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== Projects Section ==================== -->
+      <section class="portfolio-three-area py-120 position-relative z-1" id="projects">
+        <div class="portfolio-three-shape position-absolute top-0 z-n1">
+          <h3 class="portfolio-three-shape-title">works</h3>
+        </div>
+        <div class="container tw-container-1800-px">
+          <div class="row">
+            <div class="col-xl-12">
+              <div
+                class="portfolio-three-wrapper d-flex justify-content-between flex-wrap align-items-start position-relative z-1">
+                <!-- Project 1: WanderLust -->
+                <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper">
+                  <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
+                    <div class="tw-mb-6">
+                      <div>
+                        <h2 class="tw-text-605 fw-medium tw-mb-4">
+                          <a class="hover-text-main-two-600" href="https://wanderlust.tushar-sonawane.xyz/"
+                            target="_blank">WanderLust</a>
+                        </h2>
+                      </div>
+                      <div class="portfolio-three-list portfolio-list">
+                        <ul class="d-flex tw-gap-205 flex-wrap">
+                          <li>
+                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                              href="#">Node.js</a>
+                          </li>
+                          <li>
+                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                              href="#">Express</a>
+                          </li>
+                          <li>
+                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                              href="#">MongoDB</a>
+                          </li>
+                          <li>
+                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                              href="#">EJS</a>
+                          </li>
+                          <li>
+                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                              href="#">Cloudinary</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="portfolio-three-button">
+                        <a class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
+                          href="https://wanderlust.tushar-sonawane.xyz/" target="_blank"><i
+                            class="ph ph-arrow-up-right"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg" data-cursor="View">
+                    <a class="d-block cursor-hide tw-rounded-lg" href="https://wanderlust.tushar-sonawane.xyz/"
+                      target="_blank"><img class="w-100 tw-rounded-lg" src="assests/wanderlust.PNG"
+                        alt="WanderLust" /></a>
+                  </div>
+                </div>
+                <!-- Project 2: Jeni AI Chatbot -->
+                <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper">
+                  <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
+                    <div class="tw-mb-6">
+                      <div>
+                        <h2 class="tw-text-605 fw-medium tw-mb-4">
+                          <a class="hover-text-main-two-600" href="https://jeniai.tushar-sonawane.xyz/"
+                            target="_blank">Jeni — AI Chatbot</a>
+                        </h2>
+                      </div>
+                      <div class="portfolio-three-list portfolio-list">
+                        <ul class="d-flex tw-gap-205 flex-wrap">
+                          <li>
+                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                              href="#">React</a>
+                          </li>
+                          <li>
+                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                              href="#">Groq API</a>
+                          </li>
+                          <li>
+                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                              href="#">Node.js</a>
+                          </li>
+                          <li>
+                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                              href="#">CSS</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="portfolio-three-button">
+                      <a class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
+                        href="https://jeniai.tushar-sonawane.xyz/" target="_blank"><i class="ph ph-arrow-up-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg" data-cursor="View">
+                    <a class="d-block cursor-hide tw-rounded-lg" href="https://jeniai.tushar-sonawane.xyz/"
+                      target="_blank"><img class="w-100 tw-rounded-lg" src="assests/jeni.PNG"
+                        alt="Jeni AI Chatbot" /></a>
+                  </div>
+                </div>
+                <!-- Project 3: DevSync -->
+                <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper">
+                  <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
+                    <div class="tw-mb-6">
+                      <div>
+                        <h2 class="tw-text-605 fw-medium tw-mb-4">
+                          <a class="hover-text-main-two-600" href="https://devsync.tushar-sonawane.xyz/"
+                            target="_blank">DevSync — Code Editor</a>
+                        </h2>
+                      </div>
+                      <div class="portfolio-three-list portfolio-list">
+                        <ul class="d-flex tw-gap-205 flex-wrap">
+                          <li>
+                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                              href="#">Socket.IO</a>
+                          </li>
+                          <li>
+                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                              href="#">Monaco</a>
+                          </li>
+                          <li>
+                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                              href="#">Yjs</a>
+                          </li>
+                          <li>
+                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                              href="#">React</a>
+                          </li>
+                          <li>
+                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                              href="#">Node.js</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="portfolio-three-button">
+                      <a class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
+                        href="https://devsync.tushar-sonawane.xyz/" target="_blank"><i class="ph ph-arrow-up-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg" data-cursor="View">
+                    <a class="d-block cursor-hide tw-rounded-lg" href="https://devsync.tushar-sonawane.xyz/"
+                      target="_blank"><img class="w-100 tw-rounded-lg" src="assests/devsync.PNG" alt="DevSync" /></a>
+                  </div>
+                </div>
+                <!-- Project 4: MeetSphere -->
+                <div class="portfolio-three-item tw-rounded-lg tw-mb-705 portfolio-wrapper">
+                  <div class="portfolio-three-wrap d-flex justify-content-between flex-wrap row-gap-2">
+                    <div class="tw-mb-6">
+                      <div>
+                        <h2 class="tw-text-605 fw-medium tw-mb-4">
+                          <a class="hover-text-main-two-600" href="https://meetsphere.tushar-sonawane.xyz/"
+                            target="_blank">MeetSphere</a>
+                        </h2>
+                      </div>
+                      <div class="portfolio-three-list portfolio-list">
+                        <ul class="d-flex tw-gap-205 flex-wrap">
+                          <li>
+                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                              href="#">React</a>
+                          </li>
+                          <li>
+                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                              href="#">Socket.IO</a>
+                          </li>
+                          <li>
+                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                              href="#">Node.js</a>
+                          </li>
+                          <li>
+                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                              href="#">Tailwind</a>
+                          </li>
+                          <li>
+                            <a class="text-uppercase text-heading fw-medium position-relative z-1 hover-bg-main-two-600 hover-border-main-two-600 hover-text-white tw-transition-3"
+                              href="#">WebRTC</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="portfolio-three-button">
+                      <a class="portfolio-three-btn tw-w-8 tw-h-8 lh-1 d-inline-flex justify-content-center align-items-center text-heading rounded-circle hover-bg-main-two-600 hover-text-white"
+                        href="https://meetsphere.tushar-sonawane.xyz/" target="_blank"><i
+                          class="ph ph-arrow-up-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="portfolio-thumb not-hide-cursor fw-bold mb-0 tw-rounded-lg" data-cursor="View">
+                    <a class="d-block cursor-hide tw-rounded-lg" href="https://meetsphere.tushar-sonawane.xyz/"
+                      target="_blank"><img class="w-100 tw-rounded-lg" src="assests/meetsphere.PNG"
+                        alt="MeetSphere" /></a>
+                  </div>
+                </div>
+                <div
+                  class="about-three-counter portfolio-three-counter d-inline-block position-absolute bottom-0 start-0">
+                  <div class="tw-hover-btn-wrapper d-inline-block">
+                    <a class="tw-btn-circle tw-hover-btn-item tw-hover-btn tw-w-160-px tw-h-160-px lh-1 d-inline-flex justify-content-center align-items-center rounded-circle position-relative overflow-hidden"
+                      href="https://github.com/Tushar-sonawane06" target="_blank">
+                      <span class="d-flex flex-column justify-content-center">
+                        <span class="text-heading fw-bold tw-transition-3 tw-text-2xl fw-semibold">View All <br />
+                          on GitHub <i class="ph ph-arrow-up-right"></i>
+                        </span>
+                      </span>
+                      <i class="tw-btn-circle-dot bg-main-two-600"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================== Experience Marquee ========================= -->
+      <div class="marquee tw-pt-17 bg-black">
+        <div class="marquee_left d-flex align-items-center justify-content-between tw-gap-16 overflow-hidden">
+          <div>
+            <h2 class="marquee-two-title marquee-three-title text-uppercase text-white">
+              Experience <span class="text-white">-</span>
+            </h2>
+          </div>
+          <div>
+            <h2 class="marquee-two-title marquee-three-title text-uppercase text-stroke">
+              Experience <span class="text-white">-</span>
+            </h2>
+          </div>
+          <div>
+            <h2 class="marquee-two-title marquee-three-title text-uppercase text-white">
+              Experience <span class="text-white">-</span>
+            </h2>
+          </div>
+          <div>
+            <h2 class="marquee-two-title marquee-three-title text-uppercase text-stroke">
+              Experience <span class="text-white">-</span>
+            </h2>
+          </div>
+          <div>
+            <h2 class="marquee-two-title marquee-three-title text-uppercase text-white">
+              Experience <span class="text-white">-</span>
+            </h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== Experience / Awards Section ==================== -->
+      <div class="feature-three-area py-120 position-relative z-1" id="experience"
+        style="background: #000000; overflow: hidden;">
+        <div class="container tw-container-1800-px">
+          <div class="custom-timeline-container" id="timelineContainer">
+            <!-- Center Vertical Line Track -->
+            <div class="custom-timeline-line">
+              <div class="custom-timeline-progress" id="timelineProgress"></div>
+              <div class="custom-timeline-scroll-dot" id="timelineScrollDot"></div>
+            </div>
+
+            <div class="custom-timeline-items">
+              <!-- Item 1: GSSoC (Left) -->
+              <div class="custom-timeline-item left" data-aos="fade-right" data-aos-duration="1000">
+                <div class="custom-timeline-card">
+                  <div class="custom-timeline-icon">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0 0 11 15.9V19H7v2h10v-2h-4v-3.1a5.01 5.01 0 0 0 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z" />
+                    </svg>
+                  </div>
+                  <h3 class="custom-tl-title">GirlScript Summer of Code</h3>
+                  <div class="custom-tl-date">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" />
+                    </svg>
+                    <span>Jul – Oct 2025</span>
+                  </div>
+                  <p class="custom-tl-desc">
+                    Contributed to open-source repositories under GirlScript Summer of Code (GSSoC '24). Collaborated
+                    with maintainers and peers, solved challenging codebase issues, and shipped high-impact features.
+                  </p>
+                  <span class="custom-tl-badge">Contributor</span>
+                </div>
+                <div class="custom-timeline-dot"></div>
+                <div class="custom-timeline-spacer"></div>
+              </div>
+
+              <!-- Item 2: Hacktoberfest (Right) -->
+              <div class="custom-timeline-item right" data-aos="fade-left" data-aos-duration="1000">
+                <div class="custom-timeline-spacer"></div>
+                <div class="custom-timeline-dot"></div>
+                <div class="custom-timeline-card">
+                  <div class="custom-timeline-icon">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z" />
+                    </svg>
+                  </div>
+                  <h3 class="custom-tl-title">Hacktoberfest</h3>
+                  <div class="custom-tl-date">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" />
+                    </svg>
+                    <span>October 2025</span>
+                  </div>
+                  <p class="custom-tl-desc">
+                    Participated in Hacktoberfest by submitting quality pull requests to open-source repositories.
+                    Focused on real-world development challenges, enhancing codebases and fostering a spirit of
+                    collaborative engineering in the global dev community.
+                  </p>
+                  <span class="custom-tl-badge">Contributor</span>
+                </div>
+              </div>
+
+              <!-- Item 3: Winter of Code Social (Left) -->
+              <div class="custom-timeline-item left" data-aos="fade-right" data-aos-duration="1000">
+                <div class="custom-timeline-card">
+                  <div class="custom-timeline-icon">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M22 11h-4.17l2.58-2.59-1.41-1.41L15.41 10.6 13 8.17V4h3V2h-3a2 2 0 0 0-2 2v4.17L8.59 5.59 7.17 7 9.76 9.59 5.59 9.59v1.41H2v2h4.17l-2.58 2.59 1.41 1.41L8.59 13.4 11 15.83V20H8v2h3a2 2 0 0 0 2-2v-4.17l2.41 2.58 1.41-1.41-2.58-2.59H22v-2z" />
+                    </svg>
+                  </div>
+                  <h3 class="custom-tl-title">Winter of Code Social</h3>
+                  <div class="custom-tl-date">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" />
+                    </svg>
+                    <span>Dec 2025 – Feb 2026</span>
+                  </div>
+                  <p class="custom-tl-desc">
+                    Engaged in Winter of Code Social, contributing to community-driven projects with a focus on building
+                    impactful features. Gained hands-on experience in code reviews, mentorship, and agile collaboration
+                    within a distributed team environment.
+                  </p>
+                  <span class="custom-tl-badge">Contributor</span>
+                </div>
+                <div class="custom-timeline-dot"></div>
+                <div class="custom-timeline-spacer"></div>
+              </div>
+
+              <!-- Item 4: Elite Coders Winter of Code (Right) -->
+              <div class="custom-timeline-item right" data-aos="fade-left" data-aos-duration="1000">
+                <div class="custom-timeline-spacer"></div>
+                <div class="custom-timeline-dot"></div>
+                <div class="custom-timeline-card">
+                  <div class="custom-timeline-icon">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM12 20c-3.31 0-6-2.69-6-6 0-1.53.56-2.96 1.54-4.08.83 1.63 2.5 2.75 4.46 2.75 2.76 0 5-2.24 5-5 0-.49-.07-.96-.2-1.4 1.95 1.76 3.2 4.35 3.2 7.23 0 3.31-2.69 6-6 6z" />
+                    </svg>
+                  </div>
+                  <h3 class="custom-tl-title">Elite Coders Winter of Code</h3>
+                  <div class="custom-tl-date">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" />
+                    </svg>
+                    <span>Jan 2026 – March 2026</span>
+                  </div>
+                  <p class="custom-tl-desc">
+                    Selected as a contributor in Elite Coders WoC, working on advanced open-source solutions.
+                    Collaborated with elite developers, tackled challenging engineering problems, and delivered
+                    production-ready contributions that improved project quality and performance.
+                  </p>
+                  <span class="custom-tl-badge">Contributor</span>
+                </div>
+              </div>
+
+              <!-- Item 5: Nexus Spring of Code (Left) -->
+              <div class="custom-timeline-item left" data-aos="fade-right" data-aos-duration="1000">
+                <div class="custom-timeline-card">
+                  <div class="custom-timeline-icon">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M12 2.5s-4 4.5-4 10.5c0 2.2.8 4.2 2 5.7V21l2-1.5 2 1.5v-2.3c1.2-1.5 2-3.5 2-5.7 0-6-4-10.5-4-10.5zm0 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM6 14c-1.5 0-3 1.5-3 3 0 2 2 4 4 4l-.5-2.5c-.8 0-1.5-.7-1.5-1.5 0-.8.7-1.5 1.5-1.5H7l-.5-2H6zm12 0h-.5l-.5 2h.5c.8 0 1.5.7 1.5 1.5 0 .8-.7 1.5-1.5 1.5l-.5 2.5c2 0 4-2 4-4 0-1.5-1.5-3-3-3z" />
+                    </svg>
+                  </div>
+                  <h3 class="custom-tl-title">Nexus Spring of Code</h3>
+                  <div class="custom-tl-date">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z" />
+                    </svg>
+                    <span>Apr – Jun 2026</span>
+                  </div>
+                  <p class="custom-tl-desc">
+                    Selected as Project Admin for Nexus Spring of Code, earning the #1 ranked project distinction.
+                    Guided 100+ contributors, managed GitHub PR workflows, and drove scalable open-source development.
+                  </p>
+                  <span class="custom-tl-badge">Project Admin (#1 Ranked)</span>
+                </div>
+                <div class="custom-timeline-dot"></div>
+                <div class="custom-timeline-spacer"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== Certificates Section (Swiper Slider) ==================== -->
+      <section class="testimonial-three-area pt-120 tw-pb-22" id="certificates">
+        <div class="container tw-container-1800-px">
+          <div class="row justify-content-center tw-mb-21">
+            <div class="col-xl-10">
+              <div class="text-center">
+                <h2 class="testimonial-three-title text-heading tw-text-15 tw-itm-title tw-itm-anim">
+                  Certificates & recognition earned through consistent dedication
+                  to open source, learning, and community engagement
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="certificate-scroll-hint-wrapper" data-aos="fade-left" data-aos-duration="800">
+                <span class="certificate-scroll-hint">Scroll -&gt;</span>
+              </div>
+              <div class="testimonial-three-slider position-relative z-1">
+                <div class="testimonial-three-active swiper-container">
+                  <div class="swiper-wrapper">
+                    <!-- Cert 1: Postman -->
+                    <div
+                      class="testimonial-three-wrapper d-flex align-items-center tw-gap-9 tw-rounded-lg tw-mb-705 swiper-slide"
+                      data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                      <div class="testimonial-three-thumb position-relative z-1">
+                        <img class="w-100 h-100 tw-rounded-lg" src="assests/postman-certificate2.jpg"
+                          alt="Postman Certificate" />
+                      </div>
+                      <div class="testimonial-three-content w-100">
+                        <div class="d-flex align-items-center justify-content-between tw-mb-16">
+                          <div>
+                            <span><img src="assets/images/icons/testimonial-three-icon.svg" alt="icon" /></span>
+                          </div>
+                        </div>
+                        <div class="tw-mb-15">
+                          <p class="testimonial-three-paragraph text-heading tw-text-2xl fw-semibold">
+                            Validated expertise in API design, testing, and documentation using the Postman platform — a
+                            core skill for modern backend development.
+                          </p>
+                        </div>
+                        <div>
+                          <h2 class="tw-text-2xl fw-medium">
+                            Postman Certificate
+                          </h2>
+                          <p class="tw-text-lg">API Development & Testing</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Cert 2: Web Development -->
+                    <div
+                      class="testimonial-three-wrapper d-flex align-items-center tw-gap-9 tw-rounded-lg tw-mb-705 swiper-slide"
+                      data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                      <div class="testimonial-three-thumb position-relative z-1">
+                        <img class="w-100 h-100 tw-rounded-lg" src="assests/webcertmain.PNG"
+                          alt="Web Development Certificate" />
+                      </div>
+                      <div class="testimonial-three-content w-100">
+                        <div class="d-flex align-items-center justify-content-between tw-mb-16">
+                          <div>
+                            <span><img src="assets/images/icons/testimonial-three-icon.svg" alt="icon" /></span>
+                          </div>
+                        </div>
+                        <div class="tw-mb-15">
+                          <p class="testimonial-three-paragraph text-heading tw-text-2xl fw-semibold">
+                            Successfully completed Apna College's Web Development Course, covering modern full-stack
+                            development with the MERN stack.
+                          </p>
+                        </div>
+                        <div>
+                          <h2 class="tw-text-2xl fw-medium">
+                            Web Development Certificate
+                          </h2>
+                          <p class="tw-text-lg">Full Stack MERN Development</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Cert 3: GSSoC -->
+                    <div
+                      class="testimonial-three-wrapper d-flex align-items-center tw-gap-9 tw-rounded-lg tw-mb-705 swiper-slide"
+                      data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                      <div class="testimonial-three-thumb position-relative z-1">
+                        <img class="w-100 h-100 tw-rounded-lg" src="assests/gssoc-certificate.jfif"
+                          alt="GSSoC Certificate" />
+                      </div>
+                      <div class="testimonial-three-content w-100">
+                        <div class="d-flex align-items-center justify-content-between tw-mb-16">
+                          <div>
+                            <span><img src="assets/images/icons/testimonial-three-icon.svg" alt="icon" /></span>
+                          </div>
+                        </div>
+                        <div class="tw-mb-15">
+                          <p class="testimonial-three-paragraph text-heading tw-text-2xl fw-semibold">
+                            Recognized for impactful open-source contributions during GSSoC 2025 — one of India's
+                            largest open-source programs.
+                          </p>
+                        </div>
+                        <div>
+                          <h2 class="tw-text-2xl fw-medium">
+                            Girlscript Summer of Code
+                          </h2>
+                          <p class="tw-text-lg">Open Source Contributor</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Cert 4: WoCS -->
+                    <div
+                      class="testimonial-three-wrapper d-flex align-items-center tw-gap-9 tw-rounded-lg tw-mb-705 swiper-slide"
+                      data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                      <div class="testimonial-three-thumb position-relative z-1">
+                        <img class="w-100 h-100 tw-rounded-lg" src="assests/wocs-certificate.jfif"
+                          alt="Winter of Code Social Certificate" />
+                      </div>
+                      <div class="testimonial-three-content w-100">
+                        <div class="d-flex align-items-center justify-content-between tw-mb-16">
+                          <div>
+                            <span><img src="assets/images/icons/testimonial-three-icon.svg" alt="icon" /></span>
+                          </div>
+                        </div>
+                        <div class="tw-mb-15">
+                          <p class="testimonial-three-paragraph text-heading tw-text-2xl fw-semibold">
+                            Certificate of participation and contribution in Winter of Code Social — showcasing
+                            dedication to collaborative open-source development.
+                          </p>
+                        </div>
+                        <div>
+                          <h2 class="tw-text-2xl fw-medium">
+                            Winter of Code Social
+                          </h2>
+                          <p class="tw-text-lg">Open Source Contributor</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Cert 5: ECWoC -->
+                    <div
+                      class="testimonial-three-wrapper d-flex align-items-center tw-gap-9 tw-rounded-lg tw-mb-705 swiper-slide"
+                      data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                      <div class="testimonial-three-thumb position-relative z-1">
+                        <img class="w-100 h-100 tw-rounded-lg" src="assests/ecwoc-certificate.jfif"
+                          alt="Elite Coders WoC Certificate" />
+                      </div>
+                      <div class="testimonial-three-content w-100">
+                        <div class="d-flex align-items-center justify-content-between tw-mb-16">
+                          <div>
+                            <span><img src="assets/images/icons/testimonial-three-icon.svg" alt="icon" /></span>
+                          </div>
+                        </div>
+                        <div class="tw-mb-15">
+                          <p class="testimonial-three-paragraph text-heading tw-text-2xl fw-semibold">
+                            Awarded for outstanding contributions in Elite Coders WoC — demonstrating advanced technical
+                            skills and collaborative excellence.
+                          </p>
+                        </div>
+                        <div>
+                          <h2 class="tw-text-2xl fw-medium">
+                            Elite Coders Winter of Code
+                          </h2>
+                          <p class="tw-text-lg">Open Source Contributor</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Cert 6: NSoC -->
+                    <div
+                      class="testimonial-three-wrapper d-flex align-items-center tw-gap-9 tw-rounded-lg tw-mb-705 swiper-slide"
+                      data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                      <div class="testimonial-three-thumb position-relative z-1">
+                        <img class="w-100 h-100 tw-rounded-lg" src="assests/nsoccert.jfif"
+                          alt="Nexus Spring of Code Certificate" />
+                      </div>
+                      <div class="testimonial-three-content w-100">
+                        <div class="d-flex align-items-center justify-content-between tw-mb-16">
+                          <div>
+                            <span><img src="assets/images/icons/testimonial-three-icon.svg" alt="icon" /></span>
+                          </div>
+                        </div>
+                        <div class="tw-mb-15">
+                          <p class="testimonial-three-paragraph text-heading tw-text-2xl fw-semibold">
+                            Ranked #1 Project Admin at Nexus Spring of Code, leading and managing the UI-Verse
+                            open-source project while coordinating contributors and project growth.
+                          </p>
+                        </div>
+                        <div>
+                          <h2 class="tw-text-2xl fw-medium">
+                            Nexus Spring of Code
+                          </h2>
+                          <p class="tw-text-lg">#1 Ranked Project Admin</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== Footer / Contact Section ==================== -->
+      <section class="footer-three-area pt-120 tw-pb-10 position-relative z-1" id="contact">
+        <div class="container tw-container-1800-px">
+          <div class="row justify-content-between pb-120">
+            <div class="col-xl-5 col-lg-6">
+              <div class="footer-three-top-left tw-me-25" data-aos="fade-up" data-aos-duration="1000"
+                data-aos-delay="200">
+                <div class="tw-mb-9">
+                  <h2 class="tw-text-15 text-white tw-char-animation">
+                    Let's create something meaningful together
+                  </h2>
+                </div>
+                <div class="d-inline-flex align-items-center tw-gap-6 tw-mb-10 flex-wrap">
+                  <a class="tw-text-2xl fw-medium text-main-600 hover-underline hover-text-white"
+                    href="mailto:tusharsonawane1903@gmail.com">tusharsonawane1903@gmail.com</a>
+                </div>
+                <div class="footer-three-top-info tw-p-705 tw-rounded-lg d-flex tw-gap-6">
+                  <div class="footer-three-top-thumb tw-w-160-px">
+                    <img class="tw-rounded-lg w-100" src="assests/profile.jfif" alt="Tushar Sonawane" />
+                  </div>
+                  <div class="footer-three-top-content d-flex justify-content-between flex-column">
+                    <div>
+                      <h3 class="tw-text-xl text-white tw-mb-2">
+                        Tushar Sonawane
+                      </h3>
+                      <p class="text-white">Aspiring Software Engineer</p>
+                    </div>
+                    <div class="footer-three-social">
+                      <ul class="d-flex align-items-center tw-gap-1">
+                        <li>
+                          <a class="tw-w-11 tw-h-101 lh-1 d-inline-flex align-items-center justify-content-center tw-rounded-lg tw-text-xl text-heading hover-bg-main-600 hover-text-heading"
+                            href="https://github.com/Tushar-sonawane06" target="_blank"><i
+                              class="ph ph-github-logo"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="tw-w-11 tw-h-101 lh-1 d-inline-flex align-items-center justify-content-center tw-rounded-lg tw-text-xl text-heading hover-bg-main-600 hover-text-heading"
+                            href="https://www.linkedin.com/in/tushar-sonawane-800422336/" target="_blank"><i
+                              class="ph ph-linkedin-logo"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="tw-w-11 tw-h-101 lh-1 d-inline-flex align-items-center justify-content-center tw-rounded-lg tw-text-xl text-heading hover-bg-main-600 hover-text-heading"
+                            href="https://leetcode.com/u/Tushar_Sonawane/" target="_blank"><i class="ph ph-code"></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6">
+              <div class="footer-three-form" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                <form id="contactForm" action="https://formsubmit.co/tusharsonawane1903@gmail.com" method="POST">
+                  <!-- FormSubmit Configuration -->
+                  <input type="hidden" name="_subject" value="New Portfolio Contact Message" />
+                  <input type="hidden" name="_template" value="table" />
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_next" id="formNextUrl" value="https://tushar-sonawane.xyz/#contact" />
+                  <!-- Honeypot Anti-Spam Field -->
+                  <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+                  <div class="row">
+                    <div class="col-xl-12">
+                      <div class="position-relative tw-mb-7">
+                        <input type="text" name="name" id="contactName"
+                          class="form-control bg-transparent shadow-none tw-rounded-lg text-white tw-ps-7 tw-pe-13 tw-placeholder-text-neutral-100 focus-border-main-600 tw-h-18 focus-tw-placeholder-text-hidden tw-placeholder-transition-2"
+                          placeholder="Your Name" required />
+                      </div>
+                    </div>
+                    <div class="col-xl-12">
+                      <div class="position-relative tw-mb-7">
+                        <input type="email" name="email" id="contactEmail"
+                          class="form-control bg-transparent shadow-none tw-rounded-lg text-white tw-ps-7 tw-pe-13 tw-placeholder-text-neutral-100 focus-border-main-600 tw-h-18 focus-tw-placeholder-text-hidden tw-placeholder-transition-2"
+                          placeholder="Email Address" required />
+                      </div>
+                    </div>
+                    <div class="col-xl-12">
+                      <div class="position-relative tw-mb-7">
+                        <textarea name="message" id="contactMessage"
+                          class="form-control bg-transparent shadow-none tw-h-196-px tw-rounded-lg text-white tw-ps-7 tw-pe-13 tw-placeholder-text-neutral-100 focus-border-main-600 focus-tw-placeholder-text-hidden tw-placeholder-transition-2"
+                          placeholder="Tell me about your project..." required></textarea>
+                      </div>
+                    </div>
+                    <div class="col-xl-12">
+                      <div class="contact-button">
+                        <button type="submit" id="contactSubmitBtn"
+                          class="tw-hover-btn bg-main-600 text-heading tw-text-xl fw-bold tw-py-4 tw-px-10 d-inline-flex justify-content-center align-items-center tw-gap-2 w-100 hover-text-heading hover-bg-white tw-transition-3 tw-rounded-lg"
+                          style="cursor: pointer;">
+                          <span class="btn-text">send message</span>
+                          <span id="contactBtnIcon" style="display: inline-flex; align-items: center;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                              stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+                              style="transform: rotate(45deg); margin-top: -2px;">
+                              <line x1="22" y1="2" x2="11" y2="13"></line>
+                              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                          </span>
+                        </button>
+                      </div>
+                      <div id="contactFormStatus" class="tw-mt-4 text-center"
+                        style="display: none; border-radius: 8px; padding: 14px 18px; font-weight: 500; font-size: 0.95rem;">
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-three-border tw-px-18 tw-mb-10">
+          <div class="container-fluid gx-0">
+            <div class="row">
+              <div class="col-xl-12">
+                <div class="footer-three-middile d-flex align-items-center justify-content-between">
+                  <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <h4 class="tw-text-2xl text-white tw-mb-2">
+                      Quick Links
+                    </h4>
+                    <ul class="d-flex tw-gap-2 flex-wrap">
+                      <li>
+                        <a class="tw-text-lg text-white" href="#banner">Home,</a>
+                      </li>
+                      <li>
+                        <a class="tw-text-lg text-white" href="#about">About,
+                        </a>
+                      </li>
+                      <li>
+                        <a class="tw-text-lg text-white" href="#experience">Experience,
+                        </a>
+                      </li>
+                      <li>
+                        <a class="tw-text-lg text-white" href="#projects">Projects,
+                        </a>
+                      </li>
+                      <li>
+                        <a class="tw-text-lg text-white" href="#certificates">Certificates,
+                        </a>
+                      </li>
+                      <li>
+                        <a class="tw-text-lg text-white" href="#contact">Contact
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                    <a class="footer-three-back-to-top tw-w-170 tw-h-170 lh-1 d-inline-flex justify-content-center align-items-center bg-main-two-600 text-white tw-text-3xl rounded-circle"
+                      href="#banner"><i class="ph ph-arrow-up"></i>
+                    </a>
+                  </div>
+                  <div class="text-lg-end" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <h4 class="tw-text-2xl text-white tw-mb-2">
+                      Tushar Sonawane
+                    </h4>
+                    <p class="tw-text-lg text-white">
+                      Designed &amp; Developed by Tushar Sonawane
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="container tw-container-1800-px">
+            <div class="row">
+              <div class="col-xl-12">
+                <div class="footer-three-bottom">
+                  <h5 class="footer-three-bottom-title text-white">
+                    Tushar Sonawane
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <img class="position-absolute top-0 start-0 z-n1" src="assets/images/shapes/footer-three-bg-shape.png"
+            alt="shape" />
+        </div>
+      </section>
+    </div>
+  </div>
+  <!-- Jquery js -->
+  <script src="assets/js/jquery-3.7.1.min.js"></script>
+  <!-- phosphor Js -->
+  <script src="assets/js/phosphor-icon.js"></script>
+  <!-- Bootstrap Bundle Js -->
+  <script src="assets/js/boostrap.bundle.min.js"></script>
+  <!-- aos -->
+  <script src="assets/js/aos.js"></script>
+  <!-- magnific popup js -->
+  <script src="assets/js/magnific-popup.min.js"></script>
+  <!-- marquee -->
+  <script src="assets/js/jquery.marquee.min.js"></script>
+  <!-- counterup js -->
+  <script src="assets/js/purecounter.js"></script>
+  <!-- swiper bundle js -->
+  <script src="assets/js/swiper-bundle.min.js"></script>
+
+  <!-- gsap js -->
+  <script src="assets/js/gsap/gsap.js"></script>
+  <!-- Scroll plugin -->
+  <script src="assets/js/gsap/gsap-scroll-to-plugin.js"></script>
+  <!-- Scroll smoother -->
+  <script src="assets/js/gsap/gsap-scroll-smoother.js"></script>
+  <!-- Scroll Trigger -->
+  <script src="assets/js/gsap/gsap-scroll-trigger.js"></script>
+  <!-- split text -->
+  <script src="assets/js/gsap/gsap-split-text.js"></script>
+  <!-- chroma js -->
+  <script src="assets/js/gsap/chroma.min.js"></script>
+
+  <!-- custom GSAP -->
+  <script src="assets/js/slider-active.js"></script>
+  <!-- custom GSAP -->
+  <script src="assets/js/custom-gsap.js"></script>
+  <!-- main js -->
+  <script src="assets/js/main.js"></script>
+  <!-- cursor js -->
+  <script src="assets/js/tw-cursor.js"></script>
+  <!-- Timeline Scroll Progress & Active Dot Script -->
+  <script>
+    (function () {
+      function setupTimelineScroll() {
+        var container = document.getElementById('timelineContainer');
+        var progressLine = document.getElementById('timelineProgress');
+        var scrollDot = document.getElementById('timelineScrollDot');
+        if (!container || !progressLine || !scrollDot) return;
+
+        var dots = container.querySelectorAll('.custom-timeline-dot');
+
+        function updateProgress() {
+          var rect = container.getBoundingClientRect();
+          var windowH = window.innerHeight || document.documentElement.clientHeight || 800;
+          var startY = windowH * 0.72;
+          var endY = windowH * 0.28;
+          var totalDist = rect.height - (startY - endY);
+          if (totalDist <= 50) totalDist = rect.height;
+
+          var scrolledDist = startY - rect.top;
+          var progress = scrolledDist / totalDist;
+          if (progress < 0) progress = 0;
+          if (progress > 1) progress = 1;
+
+          var percent = (progress * 100).toFixed(2);
+          progressLine.style.height = percent + '%';
+          scrollDot.style.top = percent + '%';
+
+          dots.forEach(function (dot) {
+            var dotRect = dot.getBoundingClientRect();
+            if (dotRect.top <= startY + 15) {
+              dot.classList.add('active');
+            } else {
+              dot.classList.remove('active');
+            }
+          });
+        }
+
+        // Listen to scroll, touchmove, resize, and document events
+        window.addEventListener('scroll', updateProgress, { passive: true });
+        window.addEventListener('touchmove', updateProgress, { passive: true });
+        window.addEventListener('resize', updateProgress);
+        document.addEventListener('scroll', updateProgress, { passive: true });
+
+        // Connect to GSAP ticker for 60fps synchronization on mobile smooth scroll
+        if (typeof gsap !== 'undefined' && gsap.ticker) {
+          gsap.ticker.add(updateProgress);
+        }
+
+        // Connect to ScrollTrigger if available
+        if (typeof ScrollTrigger !== 'undefined') {
+          ScrollTrigger.addEventListener('refresh', updateProgress);
+          ScrollTrigger.create({
+            trigger: '#timelineContainer',
+            start: 'top bottom',
+            end: 'bottom top',
+            onUpdate: updateProgress
+          });
+        }
+
+        updateProgress();
+      }
+
+      if (document.readyState === 'complete') {
+        setupTimelineScroll();
+      } else {
+        window.addEventListener('load', setupTimelineScroll);
+      }
+    })();
+  </script>
+
+  <!-- Contact Form Submission Handler (Sends to tusharsonawane1903@gmail.com) -->
+  <style>
+    @keyframes spinContactIcon {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .spin-icon {
+      animation: spinContactIcon 0.8s linear infinite;
+      display: inline-block;
+    }
+  </style>
+  <script>
+    (function () {
+      var form = document.getElementById('contactForm');
+      if (!form) return;
+
+      var nextUrlInput = document.getElementById('formNextUrl');
+      if (nextUrlInput && window.location.protocol.indexOf('http') === 0) {
+        nextUrlInput.value = window.location.origin + window.location.pathname + '#contact';
+      }
+
+      var defaultIconHtml = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(45deg); margin-top: -2px;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>';
+      var spinnerIconHtml = '<svg class="spin-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle><path d="M12 2a10 10 0 0 1 10 10"></path></svg>';
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Check Honeypot for spam bots
+        var honey = form.querySelector('input[name="_honey"]');
+        if (honey && honey.value) {
+          return;
+        }
+
+        var submitBtn = document.getElementById('contactSubmitBtn');
+        var statusEl = document.getElementById('contactFormStatus');
+        var btnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
+        var btnIcon = document.getElementById('contactBtnIcon');
+        var originalText = btnText ? btnText.textContent : 'send message';
+
+        var nameVal = (document.getElementById('contactName') ? document.getElementById('contactName').value : '').trim();
+        var emailVal = (document.getElementById('contactEmail') ? document.getElementById('contactEmail').value : '').trim();
+        var messageVal = (document.getElementById('contactMessage') ? document.getElementById('contactMessage').value : '').trim();
+
+        // UI: Loading state
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.style.opacity = '0.75';
+          submitBtn.style.cursor = 'not-allowed';
+        }
+        if (btnText) btnText.textContent = 'Sending...';
+        if (btnIcon) btnIcon.innerHTML = spinnerIconHtml;
+        if (statusEl) {
+          statusEl.style.display = 'none';
+          statusEl.innerHTML = '';
+        }
+
+        var payload = {
+          name: nameVal,
+          email: emailVal,
+          message: messageVal,
+          _subject: 'Portfolio Contact from ' + (nameVal || 'Visitor'),
+          _template: 'table',
+          _captcha: 'false'
+        };
+
+        // When opened directly as a file:// URI, browsers block CORS requests to external APIs.
+        // Fall back seamlessly to native HTML form POST to guarantee delivery.
+        if (window.location.protocol === 'file:') {
+          form.submit();
+          return;
+        }
+
+        fetch('https://formsubmit.co/ajax/tusharsonawane1903@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        })
+          .then(function (res) {
+            return res.json();
+          })
+          .then(function (data) {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.style.opacity = '1';
+              submitBtn.style.cursor = 'pointer';
+            }
+            if (btnText) btnText.textContent = originalText;
+            if (btnIcon) btnIcon.innerHTML = defaultIconHtml;
+
+            if (!statusEl) return;
+            statusEl.style.display = 'block';
+
+            if (data.success === 'true' || data.success === true) {
+              statusEl.style.backgroundColor = 'rgba(34, 197, 94, 0.15)';
+              statusEl.style.border = '1px solid rgba(34, 197, 94, 0.5)';
+              statusEl.style.color = '#4ade80';
+              statusEl.innerHTML = '<span class="tw-font-semibold">✓ Message sent successfully!</span> Thank you for reaching out, I will get back to you shortly.';
+              form.reset();
+            } else if (data.message && data.message.toLowerCase().indexOf('activate') !== -1) {
+              statusEl.style.backgroundColor = 'rgba(234, 179, 8, 0.15)';
+              statusEl.style.border = '1px solid rgba(234, 179, 8, 0.5)';
+              statusEl.style.color = '#facc15';
+              statusEl.innerHTML = '⚡ FormSubmit sent an activation link to <strong>tusharsonawane1903@gmail.com</strong>. Please check your inbox and click activate!';
+              form.reset();
+            } else {
+              statusEl.style.backgroundColor = 'rgba(34, 197, 94, 0.15)';
+              statusEl.style.border = '1px solid rgba(34, 197, 94, 0.5)';
+              statusEl.style.color = '#4ade80';
+              statusEl.innerHTML = '<span class="tw-font-semibold">✓ Message sent!</span> Thank you for reaching out.';
+              form.reset();
+            }
+          })
+          .catch(function (err) {
+            console.warn('AJAX submit failed, falling back to native submission:', err);
+            form.submit();
+          });
+      });
+    })();
+  </script>
 </body>
 
 </html>
